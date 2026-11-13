@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>서비스명 (가제) — 말하기 어려운 고민, 익명으로 편하게</title>
+<meta name="description" content="성·신체 관련 고민을 익명으로 묻고, 또래의 공감과 전문가의 검증된 답변을 함께 받는 여성 전용 커뮤니티">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #A47148;
+    --primary-dark: #7C5636;
+    --primary-light: #F1E6D6;
+    --accent: #C98B5E;
+    --accent-light: #F6EADA;
+    --bg: #FAF5EC;
+    --surface: #FFFDF9;
+    --text: #453B30;
+    --text-light: #8A7A66;
+    --border: #EAE0CF;
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 10px;
+    --shadow: 0 10px 30px rgba(124, 86, 54, 0.1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img, svg { display: block; max-width: 100%; }
+
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-14px) rotate(2deg); }
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: .25; transform: scale(0.85); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+  .deco-icon { position: absolute; pointer-events: none; }
+  .deco-icon.cloud { fill: #fff; opacity: .7; animation: floaty 7s ease-in-out infinite; filter: drop-shadow(0 6px 10px rgba(124,86,54,0.06)); }
+  .deco-icon.star { fill: var(--accent); opacity: .8; animation: twinkle 3.2s ease-in-out infinite; }
+  .cta-section .deco-icon.star { fill: #fff; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== Header ===== */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255, 251, 249, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 24px;
+    max-width: 1080px; margin: 0 auto;
+  }
+  .logo {
+    font-weight: 900; font-size: 20px; color: var(--primary-dark);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .logo .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .logo-icon { width: 22px; height: 22px; fill: var(--accent); flex-shrink: 0; }
+  .logo .placeholder {
+    font-size: 12px; font-weight: 500; color: var(--text-light);
+    background: var(--primary-light); padding: 2px 8px; border-radius: 999px;
+  }
+  .nav-links { display: none; gap: 32px; font-size: 15px; font-weight: 500; color: var(--text); }
+  .nav-cta {
+    display: none;
+    background: var(--primary); color: #fff; font-weight: 700; font-size: 14px;
+    padding: 10px 20px; border-radius: 999px; white-space: nowrap;
+  }
+  .nav-toggle {
+    display: flex; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 8px;
+  }
+  .nav-toggle span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+  .mobile-menu {
+    display: none; flex-direction: column; gap: 4px;
+    padding: 8px 24px 20px; border-top: 1px solid var(--border);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { padding: 12px 0; font-weight: 500; border-bottom: 1px solid var(--border); }
+  .mobile-menu .nav-cta { display: block; text-align: center; margin-top: 12px; }
+
+  @media (min-width: 840px) {
+    .nav-links { display: flex; }
+    .nav-cta { display: inline-block; }
+    .nav-toggle { display: none; }
+  }
+
+  /* ===== Hero ===== */
+  .hero {
+    padding: 64px 24px 56px;
+    background: radial-gradient(ellipse at top right, var(--primary-light) 0%, transparent 55%),
+                radial-gradient(ellipse at bottom left, var(--accent-light) 0%, transparent 50%);
+    position: relative; overflow: hidden;
+  }
+  .hero-inner {
+    max-width: 1080px; margin: 0 auto; position: relative; z-index: 1;
+    display: flex; flex-direction: column; gap: 40px; align-items: center; text-align: center;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--primary-dark);
+    background: var(--primary-light); padding: 6px 16px; border-radius: 999px; margin-bottom: 20px;
+  }
+  .eyebrow .star-icon { width: 13px; height: 13px; fill: var(--accent); flex-shrink: 0; }
+  .hero h1 {
+    font-size: 34px; font-weight: 900; line-height: 1.4; letter-spacing: -0.5px;
+    color: #3A2E22;
+  }
+  .hero h1 .hl { color: var(--primary); }
+  .hero p.sub {
+    margin-top: 18px; font-size: 16px; color: var(--text-light);
+    max-width: 560px; margin-left: auto; margin-right: auto;
+  }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 8px; }
+  .btn-primary {
+    background: var(--primary); color: #fff; font-weight: 700; font-size: 15px;
+    padding: 15px 28px; border-radius: 999px; box-shadow: var(--shadow);
+    border: none; cursor: pointer;
+  }
+  .btn-secondary {
+    background: var(--surface); color: var(--text); font-weight: 700; font-size: 15px;
+    padding: 15px 28px; border-radius: 999px; border: 1px solid var(--border);
+  }
+
+  /* hero mockup card */
+  .mock {
+    width: 100%; max-width: 380px;
+    background: var(--surface); border-radius: var(--radius-lg);
+    box-shadow: 0 20px 50px rgba(124, 86, 54, 0.14);
+    border: 1px solid var(--border);
+    padding: 22px; text-align: left;
+    position: relative;
+  }
+  .mock-tag {
+    display: inline-block; font-size: 11px; font-weight: 700; color: var(--accent);
+    background: var(--accent-light); padding: 3px 10px; border-radius: 999px; margin-bottom: 10px;
+  }
+  .mock-q { font-size: 14.5px; font-weight: 700; color: var(--text); margin-bottom: 14px; }
+  .mock-step {
+    display: flex; align-items: center; gap: 10px; padding: 10px 0;
+    border-top: 1px dashed var(--border); font-size: 13px; color: var(--text-light);
+  }
+  .mock-step:first-of-type { border-top: none; }
+  .mock-step .num {
+    flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+    background: var(--primary-light); color: var(--primary-dark);
+    font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center;
+  }
+  .mock-step.done .num { background: var(--primary); color: #fff; }
+  .mock-step.done span.label { color: var(--text); font-weight: 600; }
+
+  /* ===== Sections ===== */
+  section { padding: 72px 0; }
+  .section-head { text-align: center; max-width: 600px; margin: 0 auto 44px; }
+  .section-head .eyebrow { margin-bottom: 14px; }
+  .section-head h2 { font-size: 26px; font-weight: 900; letter-spacing: -0.3px; }
+  .section-head p { margin-top: 12px; color: var(--text-light); font-size: 15px; }
+
+  /* problem cards */
+  .grid-3 { display: grid; gap: 20px; grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
+    padding: 28px 24px; box-shadow: var(--shadow);
+  }
+  .card .emoji { font-size: 26px; margin-bottom: 14px; }
+  .card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .card p { font-size: 14px; color: var(--text-light); }
+
+  .research-note {
+    text-align: center; font-size: 13.5px; color: var(--text-light);
+    margin-top: 32px; padding: 14px 20px; background: var(--primary-light);
+    border-radius: var(--radius-sm); max-width: 560px; margin-left: auto; margin-right: auto;
+  }
+
+  /* how it works */
+  .flow { position: relative; }
+  .flow-steps {
+    display: grid; gap: 20px; grid-template-columns: 1fr;
+  }
+  @media (min-width: 760px) { .flow-steps { grid-template-columns: repeat(4, 1fr); } }
+  .flow-step { text-align: center; position: relative; }
+  .flow-num {
+    width: 44px; height: 44px; border-radius: 50%; background: var(--primary);
+    color: #fff; font-weight: 800; font-size: 17px;
+    display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
+  }
+  .flow-step h3 { font-size: 15.5px; font-weight: 700; margin-bottom: 8px; }
+  .flow-step p { font-size: 13.5px; color: var(--text-light); }
+
+  /* age split */
+  .age-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .age-grid { grid-template-columns: 1fr 1fr; } }
+  .age-card {
+    border-radius: var(--radius-lg); padding: 32px 28px; color: #fff;
+  }
+  .age-card.teen { background: linear-gradient(145deg, #C9A77C, #A47148); }
+  .age-card.adult { background: linear-gradient(145deg, #D9A97A, #B5713F); }
+  .age-card .tag { font-size: 12px; font-weight: 700; opacity: 0.85; margin-bottom: 10px; }
+  .age-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 10px; }
+  .age-card p { font-size: 14px; opacity: 0.92; }
+  .age-note {
+    display: flex; align-items: center; gap: 10px; margin-top: 24px;
+    font-size: 13.5px; color: var(--text-light); justify-content: center; text-align: center;
+  }
+
+  /* trust grid */
+  .trust-grid { display: grid; gap: 18px; grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 760px) { .trust-grid { grid-template-columns: repeat(4, 1fr); } }
+  .trust-item { text-align: center; padding: 20px 14px; }
+  .trust-item .emoji {
+    width: 52px; height: 52px; border-radius: 50%; background: var(--primary-light);
+    display: flex; align-items: center; justify-content: center; font-size: 22px;
+    margin: 0 auto 14px;
+  }
+  .trust-item h3 { font-size: 14.5px; font-weight: 700; margin-bottom: 6px; }
+  .trust-item p { font-size: 12.5px; color: var(--text-light); }
+
+  /* quotes */
+  .quotes-wrap { background: var(--surface); }
+  .quote-grid { display: grid; gap: 18px; grid-template-columns: 1fr; }
+  @media (min-width: 760px) { .quote-grid { grid-template-columns: repeat(3, 1fr); } }
+  .quote-card {
+    background: var(--bg); border-radius: var(--radius-md); padding: 26px 22px;
+    border: 1px solid var(--border);
+  }
+  .quote-card .mark { font-size: 28px; color: var(--primary); font-weight: 900; line-height: 1; }
+  .quote-card p { font-size: 14.5px; margin-top: 10px; color: var(--text); }
+  .quote-card .from { margin-top: 14px; font-size: 12px; color: var(--text-light); }
+
+  /* cta */
+  .cta-section {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    border-radius: var(--radius-lg); padding: 52px 32px; text-align: center; color: #fff;
+    max-width: 1080px; margin: 0 auto;
+    position: relative; overflow: hidden;
+  }
+  .cta-section > * { position: relative; z-index: 1; }
+  .cta-section h2 { font-size: 24px; font-weight: 900; margin-bottom: 12px; }
+  .cta-section p { font-size: 14.5px; opacity: 0.9; max-width: 440px; margin: 0 auto 28px; }
+  .cta-form { display: flex; gap: 10px; max-width: 400px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+  .cta-form input {
+    flex: 1; min-width: 200px; padding: 14px 18px; border-radius: 999px; border: none; font-size: 14px;
+  }
+  .cta-form button {
+    background: #fff; color: var(--primary-dark); font-weight: 800; font-size: 14px;
+    padding: 14px 24px; border-radius: 999px; border: none; cursor: pointer;
+  }
+  .cta-note { margin-top: 14px; font-size: 12px; opacity: 0.75; }
+
+  /* footer */
+  footer { padding: 48px 24px 32px; border-top: 1px solid var(--border); }
+  .footer-inner {
+    max-width: 1080px; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 18px; align-items: center; text-align: center;
+  }
+  .footer-links { display: flex; gap: 20px; font-size: 13.5px; color: var(--text-light); flex-wrap: wrap; justify-content: center; }
+  .footer-copy { font-size: 12px; color: var(--text-light); }
+
+  @media (min-width: 760px) {
+    .hero h1 { font-size: 44px; }
+    .hero-inner { text-align: left; align-items: flex-start; }
+    .hero p.sub { margin-left: 0; }
+    .hero-ctas { justify-content: flex-start; }
+    .hero-flex { display: flex; align-items: center; gap: 56px; }
+    .hero-flex > .hero-text { flex: 1; }
+    .hero-flex > .mock { flex-shrink: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="logo"><svg class="logo-icon" viewBox="0 0 64 40"><path d="M16 32c-8 0-14-6-14-13s6-13 14-12c2-8 10-14 19-14 10 0 18 7 19 16 7 1 12 7 12 14 0 8-7 15-15 15H16z"/></svg>서비스명<span class="placeholder">가제</span></div>
+    <div class="nav-links">
+      <a href="#problem">왜 필요한가요</a>
+      <a href="#how">이용 방법</a>
+      <a href="#age">10대·20대 공간</a>
+      <a href="#trust">안전장치</a>
+    </div>
+    <a href="#cta" class="nav-cta">베타 알림 신청</a>
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#problem">왜 필요한가요</a>
+    <a href="#how">이용 방법</a>
+    <a href="#age">10대·20대 공간</a>
+    <a href="#trust">안전장치</a>
+    <a href="#cta" class="nav-cta">베타 알림 신청</a>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="deco-icon cloud" viewBox="0 0 64 40" style="top:12%; left:4%; width:70px; animation-delay:0s;"><path d="M16 32c-8 0-14-6-14-13s6-13 14-12c2-8 10-14 19-14 10 0 18 7 19 16 7 1 12 7 12 14 0 8-7 15-15 15H16z"/></svg>
+  <svg class="deco-icon cloud" viewBox="0 0 64 40" style="top:62%; left:1%; width:54px; animation-delay:1.4s;"><path d="M16 32c-8 0-14-6-14-13s6-13 14-12c2-8 10-14 19-14 10 0 18 7 19 16 7 1 12 7 12 14 0 8-7 15-15 15H16z"/></svg>
+  <svg class="deco-icon cloud" viewBox="0 0 64 40" style="top:8%; right:6%; width:60px; animation-delay:0.8s;"><path d="M16 32c-8 0-14-6-14-13s6-13 14-12c2-8 10-14 19-14 10 0 18 7 19 16 7 1 12 7 12 14 0 8-7 15-15 15H16z"/></svg>
+  <svg class="deco-icon star" viewBox="0 0 24 24" style="top:20%; left:20%; width:18px; animation-delay:0.3s;"><path d="M12 0c1.2 6.2 2.6 7.6 8.8 8.8-6.2 1.2-7.6 2.6-8.8 8.8-1.2-6.2-2.6-7.6-8.8-8.8C9.4 7.6 10.8 6.2 12 0z"/></svg>
+  <svg class="deco-icon star" viewBox="0 0 24 24" style="top:72%; left:28%; width:14px; animation-delay:1.1s;"><path d="M12 0c1.2 6.2 2.6 7.6 8.8 8.8-6.2 1.2-7.6 2.6-8.8 8.8-1.2-6.2-2.6-7.6-8.8-8.8C9.4 7.6 10.8 6.2 12 0z"/></svg>
+  <svg class="deco-icon star" viewBox="0 0 24 24" style="top:14%; right:16%; width:16px; animation-delay:1.8s;"><path d="M12 0c1.2 6.2 2.6 7.6 8.8 8.8-6.2 1.2-7.6 2.6-8.8 8.8-1.2-6.2-2.6-7.6-8.8-8.8C9.4 7.6 10.8 6.2 12 0z"/></svg>
+  <svg class="deco-icon star" viewBox="0 0 24 24" style="top:80%; right:10%; width:20px; animation-delay:0.6s;"><path d="M12 0c1.2 6.2 2.6 7.6 8.8 8.8-6.2 1.2-7.6 2.6-8.8 8.8-1.2-6.2-2.6-7.6-8.8-8.8C9.4 7.6 10.8 6.2 12 0z"/></svg>
+  <div class="hero-inner hero-flex">
+    <div class="hero-text">
+      <span class="eyebrow"><svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0c1.2 6.2 2.6 7.6 8.8 8.8-6.2 1.2-7.6 2.6-8.8 8.8-1.2-6.2-2.6-7.6-8.8-8.8C9.4 7.6 10.8 6.2 12 0z"/></svg>여성을 위한 익명 성·건강 상담 커뮤니티</span>
+      <h1>친구에게도 못한 말,<br>여기선 <span class="hl">물어봐도</span> 괜찮아요</h1>
+      <p class="sub">성과 몸에 대한 고민, 혼자 끌어안지 마세요. 또래의 공감과 전문가의 검증된 답변을
+        함께 받을 수 있는 여성 전용 익명 커뮤니티입니다.</p>
+      <div class="hero-ctas">
+        <a href="#cta" class="btn-primary">지금 질문하러 가기</a>
+        <a href="#how" class="btn-secondary">어떻게 운영되나요?</a>
+      </div>
+    </div>
+    <div class="mock">
+      <svg class="deco-icon star" viewBox="0 0 24 24" style="top:-10px; right:-10px; width:26px; animation-delay:0.4s;"><path d="M12 0c1.2 6.2 2.6 7.6 8.8 8.8-6.2 1.2-7.6 2.6-8.8 8.8-1.2-6.2-2.6-7.6-8.8-8.8C9.4 7.6 10.8 6.2 12 0z"/></svg>
+      <span class="mock-tag">익명 질문</span>
+      <p class="mock-q">"생리 주기가 갑자기 불규칙해졌는데, 병원에 꼭 가야 할까요?"</p>
+      <div class="mock-step done"><span class="num">1</span><span class="label">또래 답변 도착 — 공감 3</span></div>
+      <div class="mock-step done"><span class="num">2</span><span class="label">AI 1차 검수 완료</span></div>
+      <div class="mock-step done"><span class="num">3</span><span class="label">전문가 답변 확정됨</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="problem">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow"><svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0c1.2 6.2 2.6 7.6 8.8 8.8-6.2 1.2-7.6 2.6-8.8 8.8-1.2-6.2-2.6-7.6-8.8-8.8C9.4 7.6 10.8 6.2 12 0z"/></svg>왜 필요할까요</span>
+      <h2>이런 고민, 있지 않으셨나요?</h2>
+      <p>여성 12명을 대상으로 한 인터뷰에서 반복적으로 나온 이야기예요.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="emoji">🙊</div>
+        <h3>말하기 창피해서</h3>
+        <p>가족에게도, 친구에게도 선뜻 꺼내기 어려운 이야기가 있어요. 소문날까 봐 혼자 끌어안게 돼요.</p>
+      </div>
+      <div class="card">
+        <div class="emoji">🌀</div>
+        <h3>정보는 많은데 믿을 수가 없어서</h3>
+        <p>인터넷엔 정보가 넘치지만, 어떤 게 맞는 건지 확인할 방법이 마땅치 않아요.</p>
+      </div>
+      <div class="card">
+        <div class="emoji">❓</div>
+        <h3>어디에 물어야 할지 몰라서</h3>
+        <p>전문가에게 직접 묻자니 비용도, 용기도 필요해서 결국 검색만 반복하게 돼요.</p>
+      </div>
+    </div>
+    <p class="research-note">실제 설문·인터뷰(만 13~24세 여성 12명)에서도 같은 이야기가 반복해서 확인됐습니다.</p>
+  </div>
+</section>
+
+<section id="how" style="background:var(--surface);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow"><svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0c1.2 6.2 2.6 7.6 8.8 8.8-6.2 1.2-7.6 2.6-8.8 8.8-1.2-6.2-2.6-7.6-8.8-8.8C9.4 7.6 10.8 6.2 12 0z"/></svg>이용 방법</span>
+      <h2>공감과 전문성을 한 번에</h2>
+      <p>또래의 따뜻한 공감에서 시작해, 전문가의 확인까지 이어지는 4단계예요.</p>
+    </div>
+    <div class="flow">
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <h3>익명으로 질문하기</h3>
+          <p>이름도 얼굴도 필요 없어요. 궁금한 걸 편하게 적어주세요.</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <h3>또래가 먼저 공감해요</h3>
+          <p>비슷한 경험을 가진 또래가 가장 먼저 답을 건네요.</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <h3>AI가 한 번 더 확인해요</h3>
+          <p>혹시 모를 잘못된 정보나 위험한 내용은 AI가 먼저 걸러내요.</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <h3>전문가가 답변을 더해요</h3>
+          <p>의료진·상담 전문가가 최종적으로 답변을 보강하고 확정해요.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="age">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow"><svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0c1.2 6.2 2.6 7.6 8.8 8.8-6.2 1.2-7.6 2.6-8.8 8.8-1.2-6.2-2.6-7.6-8.8-8.8C9.4 7.6 10.8 6.2 12 0z"/></svg>10대 · 20대 공간이 따로 있어요</span>
+      <h2>연령에 맞는 눈높이를 지켜요</h2>
+      <p>같은 고민이어도 나이에 따라 필요한 이야기의 깊이가 달라요.</p>
+    </div>
+    <div class="age-grid">
+      <div class="age-card teen">
+        <div class="tag">10대 커뮤니티</div>
+        <h3>또래와 함께, 안전하게</h3>
+        <p>비슷한 또래 친구들과 편하게 소통해요. 20대 선배들의 답변도 함께 받을 수 있어요.</p>
+      </div>
+      <div class="age-card adult">
+        <div class="tag">20대 커뮤니티</div>
+        <h3>조금 더 깊은 이야기도 괜찮아요</h3>
+        <p>더 넓은 주제를 솔직하게 나눠요. 10대 커뮤니티에 선배로서 답변을 남길 수도 있어요.</p>
+      </div>
+    </div>
+    <p class="age-note">🔒 10대 사용자는 20대 커뮤니티에 들어갈 수 없어요. 서로 다른 눈높이를 안전하게 지켜드릴게요.</p>
+  </div>
+</section>
+
+<section id="trust" style="background:var(--surface);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow"><svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0c1.2 6.2 2.6 7.6 8.8 8.8-6.2 1.2-7.6 2.6-8.8 8.8-1.2-6.2-2.6-7.6-8.8-8.8C9.4 7.6 10.8 6.2 12 0z"/></svg>안심하고 이용할 수 있도록</span>
+      <h2>신뢰를 위한 안전장치</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="emoji">🕶️</div>
+        <h3>완전 익명</h3>
+        <p>작성자 정보는 누구에게도 공개되지 않아요.</p>
+      </div>
+      <div class="trust-item">
+        <div class="emoji">✅</div>
+        <h3>3단계 검증</h3>
+        <p>또래 답변 → AI 검수 → 전문가 확정까지 거쳐요.</p>
+      </div>
+      <div class="trust-item">
+        <div class="emoji">🧑‍⚕️</div>
+        <h3>전문가 네트워크</h3>
+        <p>의료진·상담 전문가가 실제로 참여해요.</p>
+      </div>
+      <div class="trust-item">
+        <div class="emoji">🚩</div>
+        <h3>신고 기능</h3>
+        <p>불편하거나 위험한 내용은 언제든 신고할 수 있어요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quotes-wrap">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow"><svg class="star-icon" viewBox="0 0 24 24"><path d="M12 0c1.2 6.2 2.6 7.6 8.8 8.8-6.2 1.2-7.6 2.6-8.8 8.8-1.2-6.2-2.6-7.6-8.8-8.8C9.4 7.6 10.8 6.2 12 0z"/></svg>리서치에서 들은 진짜 목소리</span>
+      <h2>설문 응답자들이 남긴 이야기</h2>
+    </div>
+    <div class="quote-grid">
+      <div class="quote-card">
+        <div class="mark">“</div>
+        <p>친구들한테 물어보기는 그런데, 인터넷에서 믿을만한 자료 찾는 것도 일이에요.</p>
+        <div class="from">— 설문 응답자, 만 19~24세</div>
+      </div>
+      <div class="quote-card">
+        <div class="mark">“</div>
+        <p>비밀이 지켜진다는 보장만 있다면, 훨씬 편하게 말할 수 있을 것 같아요.</p>
+        <div class="from">— 설문 응답자, 만 16~18세</div>
+      </div>
+      <div class="quote-card">
+        <div class="mark">“</div>
+        <p>불편한 질문도 전문가가 답해주면 확실히 안심될 것 같아요.</p>
+        <div class="from">— 설문 응답자, 만 13~15세</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="wrap">
+    <div class="cta-section">
+      <svg class="deco-icon star" viewBox="0 0 24 24" style="top:10%; left:8%; width:16px; animation-delay:0.2s;"><path d="M12 0c1.2 6.2 2.6 7.6 8.8 8.8-6.2 1.2-7.6 2.6-8.8 8.8-1.2-6.2-2.6-7.6-8.8-8.8C9.4 7.6 10.8 6.2 12 0z"/></svg>
+      <svg class="deco-icon star" viewBox="0 0 24 24" style="top:70%; left:14%; width:12px; animation-delay:1.3s;"><path d="M12 0c1.2 6.2 2.6 7.6 8.8 8.8-6.2 1.2-7.6 2.6-8.8 8.8-1.2-6.2-2.6-7.6-8.8-8.8C9.4 7.6 10.8 6.2 12 0z"/></svg>
+      <svg class="deco-icon star" viewBox="0 0 24 24" style="top:16%; right:10%; width:20px; animation-delay:0.7s;"><path d="M12 0c1.2 6.2 2.6 7.6 8.8 8.8-6.2 1.2-7.6 2.6-8.8 8.8-1.2-6.2-2.6-7.6-8.8-8.8C9.4 7.6 10.8 6.2 12 0z"/></svg>
+      <svg class="deco-icon star" viewBox="0 0 24 24" style="top:68%; right:16%; width:14px; animation-delay:1.9s;"><path d="M12 0c1.2 6.2 2.6 7.6 8.8 8.8-6.2 1.2-7.6 2.6-8.8 8.8-1.2-6.2-2.6-7.6-8.8-8.8C9.4 7.6 10.8 6.2 12 0z"/></svg>
+      <svg class="deco-icon cloud" viewBox="0 0 64 40" style="bottom:-6%; left:40%; width:90px; opacity:.12; animation-delay:0.5s;" fill="#fff"><path d="M16 32c-8 0-14-6-14-13s6-13 14-12c2-8 10-14 19-14 10 0 18 7 19 16 7 1 12 7 12 14 0 8-7 15-15 15H16z"/></svg>
+      <h2>준비되는 대로 가장 먼저 알려드릴게요</h2>
+      <p>베타 오픈 소식을 받아보고 싶다면 이메일을 남겨주세요. (현재는 디자인 프로토타입 단계예요)</p>
+      <form class="cta-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='신청 완료 🎉';">
+        <input type="email" placeholder="이메일 주소" required>
+        <button type="submit">알림 신청</button>
+      </form>
+      <p class="cta-note">※ 이 페이지는 서비스 기획을 위한 홍보용 시안입니다.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="logo"><svg class="logo-icon" viewBox="0 0 64 40"><path d="M16 32c-8 0-14-6-14-13s6-13 14-12c2-8 10-14 19-14 10 0 18 7 19 16 7 1 12 7 12 14 0 8-7 15-15 15H16z"/></svg>서비스명<span class="placeholder">가제</span></div>
+    <div class="footer-links">
+      <a href="#problem">서비스 소개</a>
+      <a href="#how">이용 방법</a>
+      <a href="#trust">안전장치</a>
+      <a href="mailto:contact@example.com">문의하기</a>
+    </div>
+    <p class="footer-copy">ⓒ 2026 서비스명(가제). 이 사이트는 과제용 디자인 프로토타입입니다.</p>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  navToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  document.querySelectorAll('.mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-11-13T04:00:00Z" },
+  "title": "모바일웹 와이어프레임 (가제)",
+  "launch": { "view": "canvas" },
+  "pages": [],
+  "boards": {
+    "Main.dc.html": { "x": 0, "y": 0, "w": 390, "h": 844, "title": "① 온보딩 · 연령 선택", "is_interactive": true },
+    "Home.dc.html": { "x": 470, "y": 0, "w": 390, "h": 844, "title": "② 홈 · 질문 피드", "is_interactive": true },
+    "Ask.dc.html": { "x": 940, "y": 0, "w": 390, "h": 844, "title": "③ 익명 질문 작성", "is_interactive": true },
+    "Detail.dc.html": { "x": 1410, "y": 0, "w": 390, "h": 844, "title": "④ 질문 상세 · 답변 플로우", "is_interactive": true }
+  },
+  "order": ["Main.dc.html", "Home.dc.html", "Ask.dc.html", "Detail.dc.html"],
+  "notes": {
+    "t1": { "x": 0, "y": -130, "text": "모바일웹 와이어프레임 (가제) — 익명질문 → 또래공감 → AI검수 → 전문가답변", "kind": "title1" }
+  },
+  "designSystems": []
+}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>온보딩 · 연령 선택</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Noto Sans KR',system-ui,sans-serif;}
+a{color:inherit;text-decoration:none;}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F4F4F3; display: flex; flex-direction: column; padding: 28px 24px; gap: 28px; overflow: hidden">
+  <div style="display: flex; align-items: center; gap: 8px">
+    <div style="width: 26px; height: 26px; border-radius: 50%; background: #A47148; flex-shrink: 0"></div>
+    <span style="font-weight: 700; font-size: 15px; color: #2B2A27">서비스명</span>
+    <span style="font-size: 11px; font-weight: 500; color: #8B887E; background: #EDE8DF; padding: 2px 8px; border-radius: 999px">가제</span>
+  </div>
+  <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 14px">
+    <h1 style="margin: 0; font-size: 25px; font-weight: 900; color: #2B2A27; line-height: 1.45">먼저,<br>나이대를 선택해주세요</h1>
+    <p style="margin: 0; font-size: 14px; color: #8B887E; line-height: 1.6">연령에 맞는 안전한 공간으로<br>안내해드릴게요</p>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 14px">
+    <a href="Home.dc.html">
+      <div style="border: 1.5px solid #D9D5CD; border-radius: 16px; padding: 20px; background: #FFFFFF; display: flex; align-items: center; justify-content: space-between">
+        <div>
+          <div style="font-size: 17px; font-weight: 700; color: #2B2A27">10대</div>
+          <div style="font-size: 12.5px; color: #8B887E; margin-top: 4px">만 13~18세 · 또래 + 20대 선배 답변</div>
+        </div>
+        <div style="width: 9px; height: 9px; border-top: 2px solid #8B887E; border-right: 2px solid #8B887E; transform: rotate(45deg); flex-shrink: 0"></div>
+      </div>
+    </a>
+    <a href="Home.dc.html">
+      <div style="border: 1.5px solid #D9D5CD; border-radius: 16px; padding: 20px; background: #FFFFFF; display: flex; align-items: center; justify-content: space-between">
+        <div>
+          <div style="font-size: 17px; font-weight: 700; color: #2B2A27">20대</div>
+          <div style="font-size: 12.5px; color: #8B887E; margin-top: 4px">만 19~24세 · 더 넓고 깊은 주제</div>
+        </div>
+        <div style="width: 9px; height: 9px; border-top: 2px solid #8B887E; border-right: 2px solid #8B887E; transform: rotate(45deg); flex-shrink: 0"></div>
+      </div>
+    </a>
+  </div>
+  <p style="margin: 0; text-align: center; font-size: 11.5px; color: #B7B3A8">선택한 연령 커뮤니티는 서로 공개되지 않아요</p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

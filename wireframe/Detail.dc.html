@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>질문 상세 · 답변 플로우</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Noto Sans KR',system-ui,sans-serif;}
+a{color:inherit;text-decoration:none;}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #F4F4F3; display: flex; flex-direction: column; overflow: hidden">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid #E7E3DA; background: #FFFFFF; flex-shrink: 0">
+    <a href="Home.dc.html" style="display: flex; align-items: center">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2B2A27" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </a>
+    <span style="font-size: 14px; font-weight: 700; color: #2B2A27">질문 상세</span>
+    <div style="display: flex; align-items: center; gap: 4px">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B7B3A8" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+      <span style="font-size: 11.5px; color: #B7B3A8">신고</span>
+    </div>
+  </div>
+
+  <div style="flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 22px">
+
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <div style="display: flex; align-items: center; gap: 6px">
+        <span style="font-size: 10.5px; font-weight: 700; color: #A47148; background: #F6EADA; padding: 2px 8px; border-radius: 999px">익명 질문</span>
+        <span style="font-size: 11px; color: #B7B3A8">3시간 전</span>
+      </div>
+      <p style="margin: 0; font-size: 15.5px; color: #2B2A27; line-height: 1.6; font-weight: 700">생리 주기가 갑자기 불규칙해졌는데, 병원에 꼭 가야 할까요?</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column">
+
+      <div style="display: flex; gap: 12px">
+        <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0">
+          <div style="width: 26px; height: 26px; border-radius: 50%; background: #A47148; color: #FFFFFF; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center">1</div>
+          <div style="width: 2px; flex: 1; background: #E2DFD8; margin: 4px 0"></div>
+        </div>
+        <div style="flex: 1; padding-bottom: 18px">
+          <div style="font-size: 13px; font-weight: 700; color: #2B2A27; margin-bottom: 8px">또래 답변 도착</div>
+          <div style="background: #FFFFFF; border: 1px solid #E7E3DA; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 6px">
+            <span style="font-size: 10.5px; color: #8B887E">또래 · 20대 선배</span>
+            <p style="margin: 0; font-size: 13px; color: #2B2A27; line-height: 1.5">저도 비슷한 적 있었는데 스트레스 때문이었어요. 2주 이상 계속되면 병원 가보는 게 좋을 것 같아요.</p>
+            <span style="font-size: 11px; color: #B7B3A8">공감 12</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px">
+        <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0">
+          <div style="width: 26px; height: 26px; border-radius: 50%; background: #4A7399; color: #FFFFFF; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center">2</div>
+          <div style="width: 2px; flex: 1; background: #E2DFD8; margin: 4px 0"></div>
+        </div>
+        <div style="flex: 1; padding-bottom: 18px">
+          <div style="font-size: 13px; font-weight: 700; color: #2B2A27; margin-bottom: 8px">AI 1차 검수 완료</div>
+          <div style="background: #E9F0F6; border: 1px solid #D7E3ED; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 6px">
+            <span style="font-size: 10.5px; font-weight: 700; color: #4A7399">성지식 특화 AI 검수</span>
+            <p style="margin: 0; font-size: 13px; color: #2B2A27; line-height: 1.5">위험하거나 잘못된 정보는 없는지 확인했어요. 전문가 답변을 이어서 안내해드릴게요.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 12px">
+        <div style="display: flex; flex-direction: column; align-items: center; flex-shrink: 0">
+          <div style="width: 26px; height: 26px; border-radius: 50%; background: #A47148; color: #FFFFFF; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center">3</div>
+        </div>
+        <div style="flex: 1">
+          <div style="font-size: 13px; font-weight: 700; color: #2B2A27; margin-bottom: 8px">전문가 답변 확정</div>
+          <div style="background: #FFFFFF; border: 1.5px solid #A47148; border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 6px">
+            <span style="font-size: 10.5px; font-weight: 700; color: #7C5636">산부인과 전문의 (가명)</span>
+            <p style="margin: 0; font-size: 13px; color: #2B2A27; line-height: 1.5">스트레스나 급격한 체중 변화로도 주기가 바뀔 수 있어요. 다만 3개월 이상 불규칙하다면 꼭 진료를 받아보시길 권해드려요.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div style="padding: 14px 20px 22px; border-top: 1px solid #E7E3DA; background: #FFFFFF; display: flex; gap: 10px; flex-shrink: 0">
+    <div style="flex: 1; border: 1px solid #E2DFD8; border-radius: 999px; text-align: center; padding: 13px; font-size: 13.5px; font-weight: 700; color: #2B2A27">공감하기</div>
+    <a href="Home.dc.html" style="flex: 1">
+      <div style="background: #A47148; color: #FFFFFF; border-radius: 999px; text-align: center; padding: 13px; font-size: 13.5px; font-weight: 700">홈으로</div>
+    </a>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

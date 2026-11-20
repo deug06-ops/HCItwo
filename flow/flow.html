@@ -1,0 +1,26 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>서비스 플로우</title>
+<style>body{font-family:system-ui,sans-serif;margin:0;padding:24px;background:#fafaf8;color:#222}h1{font-size:22px}h2{font-size:17px;margin:32px 0 6px}.box{background:#fff;border:1px solid #ddd;border-radius:12px;padding:16px;overflow-x:auto}.lg{font-size:13px;color:#555}.lg span{display:inline-block;margin-right:14px}.lg i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:4px;vertical-align:-1px}</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script></head><body>
+<h1>서비스명(가제) 서비스 플로우</h1>
+<p class="lg"><span><i style="background:#e8f1ff;border:1px solid #4a7fd6"></i>와이어프레임 있음</span><span><i style="background:#fff4e0;border:1px dashed #d68a1a"></i>와이어프레임 없음</span><span><i style="background:#ffecec;border:1px dashed #c44"></i>새 화면</span></p>
+<h2>플로우 1: 익명 질문 → 답변 받기 (핵심)</h2>
+<div class="box"><pre class="mermaid">
+flowchart LR
+  S2_0["홈 매거진 허브 2.0"] -->|"하단 탭 커뮤니티"| S3_0["커뮤니티 질문 피드 3.0"]
+  S3_0 -->|"만 14-18세 탭에서 질문하기"| S3_1["익명 질문 작성 3.1"]
+  S3_1 -->|"등록"| S3_2["질문 상세 답변 3.2"]
+  S3_1 -.->|"입력 빠짐 또는 부적절한 글 사진"| S3_1
+  S3_1 -.->|"첫 등록"| N1["푸시 알림 동의 (새 화면)"]
+  N1 -->|"동의"| S3_2
+  S3_2 -->|"새 답변 푸시 누름, 채택 또는 댓글"| S3_2
+  S3_2 -.->|"AI가 전문성 필요 감지, 글 삭제 후 푸시"| N2["전문가 질문 작성 (새 화면)"]
+  N2 -->|"내용 수정 후 등록"| S4_0["AI QnA 4.0"]
+  classDef has fill:#e8f1ff,stroke:#4a7fd6
+  classDef none fill:#fff4e0,stroke:#d68a1a,stroke-dasharray:4
+  classDef new fill:#ffecec,stroke:#c44,stroke-dasharray:4
+  class S2_0,S3_0,S3_1,S3_2,S4_0 has
+  class N1,N2 new
+</pre></div>
+<script>mermaid.initialize({startOnLoad:true,theme:"neutral",flowchart:{htmlLabels:true}})</script>
+</body></html>

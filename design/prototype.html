@@ -48,6 +48,7 @@ a.card:active{background:#FBFAF7}
 .dim.on{display:flex}
 .dialog{background:var(--surface);border-radius:20px;padding:22px 20px 16px;width:100%;display:flex;flex-direction:column;gap:16px}
 .row{display:flex;gap:10px}
+.row .btn{padding:0 12px;white-space:nowrap}
 .screen.has-tab.on{height:780px;overflow-y:auto}
 .ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 .ph{background:#E2DFD8;color:var(--sub);font-size:12px;display:flex;align-items:center;justify-content:center;text-align:center}
@@ -136,6 +137,66 @@ a.card:active{background:#FBFAF7}
     <a href="#4.0"><svg class="ico" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>AI Q&amp;A</a>
     <a href="#5.0"><svg class="ico" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 1 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/></svg>사전</a>
   </nav>
+</section>
+<section class="screen" id="3.1" data-name="익명 질문 작성">
+  <div class="topbar">
+    <a href="#3.0" class="back" aria-label="뒤로"><svg class="ico" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></a>
+    <span class="title">질문하기</span>
+    <button onclick="q31Submit()" style="min-height:44px;padding:0 12px;border:0;background:none;font-size:15px;font-weight:700;color:var(--main);cursor:pointer">등록</button>
+  </div>
+  <div class="wrap" style="gap:18px">
+    <div class="notice" style="background:var(--main-soft);color:var(--main)"><span>만 14~18세 커뮤니티에 익명으로 올라가요. 이름은 공개되지 않으니 편하게 적어주세요.</span></div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <b style="font-size:15px">카테고리</b>
+      <div class="chips" id="q31Cat">
+        <button class="chip on" onclick="q31Pick(this)">생리·생리통</button><button class="chip" onclick="q31Pick(this)">피임</button><button class="chip" onclick="q31Pick(this)">몸 고민</button><button class="chip" onclick="q31Pick(this)">연애·관계</button><button class="chip" onclick="q31Pick(this)">기타</button>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <b style="font-size:15px">내용</b>
+      <textarea class="input" id="q31Text" rows="6" placeholder="궁금한 점을 자유롭게 적어주세요. AI 검수를 거쳐 올라가고, 또래가 공감 답변을 남겨줘요." oninput="document.getElementById('q31Err').hidden=true"></textarea>
+      <p class="err" id="q31Err" hidden style="margin:0"></p>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <button onclick="toast('사진 고르기 (프로토타입에서는 생략)')" style="width:64px;height:64px;border:1.5px dashed var(--line);border-radius:14px;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;color:var(--sub)"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg><span style="font-size:11px">사진 0/3</span></button>
+      <span class="meta" style="line-height:1.5">사진을 첨부할 수 있어요.<br>부적절한 글·사진은 검열을 거쳐 올라가지 않아요.</span>
+    </div>
+    <div class="notice" style="background:var(--accent-soft);color:var(--accent)"><span>병원·건강처럼 전문가 확인이 필요한 내용이면, 등록을 누를 때 AI가 먼저 알려드려요. 전문가에게 묻기를 고르면 내용이 그대로 옮겨지고, 확인·수정한 뒤 등록하면 돼요.</span></div>
+    <button class="btn" onclick="q31Submit()">익명으로 질문하기</button>
+  </div>
+  <div class="state-bar">
+    <button onclick="q31Demo('empty')">입력 빠짐 보기</button>
+    <button onclick="q31Demo('bad')">부적절한 글 보기</button>
+    <button onclick="q31Demo('expert')">전문가 안내 보기</button>
+    <button onclick="q31Demo('first')">첫 등록 보기</button>
+  </div>
+  <div class="dim" id="q31Dim">
+    <div class="dialog">
+      <div style="display:flex;flex-direction:column;gap:6px"><b style="font-size:17px">전문가에게 묻는 게 좋아 보여요</b><span class="meta" style="line-height:1.55">병원·건강처럼 전문가 확인이 필요한 내용이에요. 전문가에게 물으면 내용이 그대로 옮겨지고, 나만 보는 1:1로 답을 받아요.</span></div>
+      <div class="row"><button class="btn line" onclick="document.getElementById('q31Dim').classList.remove('on')">고쳐 쓰기</button><a class="btn" href="#4.2" onclick="document.getElementById('q31Dim').classList.remove('on')">전문가에게 묻기</a></div>
+    </div>
+  </div>
+  <script>
+  let q31First=true;
+  function q31Pick(b){document.querySelectorAll('#q31Cat .chip').forEach(c=>c.classList.toggle('on',c===b))}
+  function q31Error(m){const e=document.getElementById('q31Err');e.textContent=m;e.hidden=false}
+  function q31Submit(){
+    const t=document.getElementById('q31Text').value.trim(),cat=document.querySelector('#q31Cat .chip.on');
+    if(!cat||!t)return q31Error('카테고리를 고르고 내용을 적어주세요.');
+    if(/부적절|욕설|폭력/.test(t))return q31Error('부적절한 표현이 있어 올릴 수 없어요. 내용을 고쳐 주세요.');
+    if(/병원|건강|진료|약|통증|산부인과/.test(t))return document.getElementById('q31Dim').classList.add('on');
+    if(q31First){q31First=false;location.hash='3.3';return}
+    toast('질문을 올렸어요');location.hash='3.2';
+  }
+  function q31Demo(k){
+    const ta=document.getElementById('q31Text');
+    if(k==='empty')ta.value='';
+    if(k==='bad')ta.value='(부적절한 표현이 들어간 글)';
+    if(k==='expert')ta.value='생리통이 너무 심해서 학교에 가기 힘들 정도예요. 병원에 가봐야 할까요?';
+    if(k==='first'){q31First=true;ta.value='생리할 때 다들 체육 시간 어떻게 버텨요?'}
+    q31Submit();
+  }
+  </script>
 </section>
 <!-- 화면 끝 -->
 </div>

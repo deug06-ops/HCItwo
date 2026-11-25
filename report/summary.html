@@ -1,0 +1,89 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>한 장 요약</title>
+<style id="proto-style">
+</style>
+<style>
+html,body{margin:0;background:#e9eaee;font-family:system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:#1d1d1f}
+#rp-bar{position:sticky;top:0;z-index:5;display:flex;gap:12px;align-items:center;padding:10px 16px;background:#1d1d1f;color:#fff;font-size:14px}
+#rp-bar button{font:inherit;font-weight:600;padding:8px 16px;border:0;border-radius:8px;background:#fff;color:#1d1d1f;cursor:pointer}
+#rp-board{width:1600px;margin:20px auto;background:#fff;padding:40px 44px;box-sizing:border-box;display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+.rp-head{grid-column:1/-1;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;border-bottom:3px solid #1d1d1f;padding-bottom:16px}
+.rp-head h1{margin:0;font-size:40px;line-height:1.15}.rp-head p{margin:6px 0 0;font-size:19px;color:#444}.rp-meta{text-align:right;font-size:15px;color:#555;white-space:nowrap}
+.rp-card{border:1px solid #d9d9de;border-radius:14px;padding:18px 20px;min-width:0;background:#fff}
+.rp-card h2{margin:0 0 10px;font-size:15px;letter-spacing:.04em;color:#666;font-weight:600}
+.rp-card ul,.rp-card ol{margin:0;padding-left:20px;font-size:16px;line-height:1.55}.rp-card p{margin:0;font-size:16px;line-height:1.55}
+.rp-steps{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rp-step{border-radius:12px;background:#f3f4f7;padding:14px 16px}.rp-step b{display:block;font-size:17px;margin-bottom:4px}.rp-step span{font-size:15px;color:#333;line-height:1.5}
+.rp-flow{grid-column:1/-1}.rp-flow .mermaid{margin:0;text-align:center}.rp-flow svg{max-width:100%;height:auto}
+.rp-check{grid-column:span 5}.rp-design{grid-column:span 3}.rp-decide{grid-column:span 4}
+.rp-table{width:100%;border-collapse:collapse;font-size:15px}.rp-table td,.rp-table th{border-top:1px solid #e3e3e8;padding:6px 6px;text-align:left;vertical-align:top}
+.rp-tag{display:inline-block;padding:1px 8px;border-radius:999px;font-size:13px;font-weight:600}.rp-ok{background:#e2f4e6;color:#1c6b2f}.rp-weak{background:#fff0d6;color:#8a5a00}.rp-miss{background:#ffe3e0;color:#a3261a}
+.rp-chips{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0}.rp-chip{display:flex;align-items:center;gap:8px;font-size:14px}.rp-chip i{width:28px;height:28px;border-radius:8px;border:1px solid #0002;display:inline-block}
+.rp-screens{grid-column:span 8}.rp-next{grid-column:span 4}
+.rp-shots{display:flex;gap:18px;flex-wrap:wrap}.rp-shotbox{width:195px}.rp-shotbox figcaption{font-size:14px;margin-top:8px;text-align:center;color:#333}
+.rp-shot{width:195px;height:390px;overflow:hidden;border:1px solid #cfcfd6;border-radius:16px;background:#fff;position:relative}
+.rp-shot>.screen{display:block!important;width:390px;min-height:780px;transform:scale(.5);transform-origin:0 0;pointer-events:none}
+.rp-empty{color:#888;font-size:15px}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+</head><body>
+<div id="rp-bar"><button id="rp-save">이미지로 저장</button><span id="rp-msg">아래 한 장이 그대로 이미지가 돼요.</span></div>
+<div id="rp-board">
+ <header class="rp-head"><div><h1>서비스명(가제)</h1><p>성·신체 고민을 익명으로 묻고, 또래 공감과 전문가 답변을 받을 수 있는 여성 전용 모바일웹 서비스</p></div><div class="rp-meta">팀 이름<br>팀원 이름<br>2026-11-25</div></header>
+ <section class="rp-steps">
+  <div class="rp-step"><b>1. 자료 지도</b><span>기획서·퍼소나·인터뷰(12명)·와이어프레임 위치를 한 장에 정리, 화면 9개에 ID 부여</span></div>
+  <div class="rp-step"><b>2. 서비스 플로우</b><span>플로우 3개(핵심: 익명 질문 → 답변 받기) + 전체 서비스 플로우, 화면 15개 점검표, 새 화면 7개 발견</span></div>
+  <div class="rp-step"><b>3. 기획 점검</b><span>핵심 기능 13개 판정(들어감 6 · 약함 3 · 빠짐 4), 퍼소나 김서윤으로 따라가며 헷갈릴 곳 5가지 고침, 기획서 v3로 수정</span></div>
+  <div class="rp-step"><b>4. 디자인</b><span>진행 중이라 이번 요약에서 뺐어요</span></div>
+ </section>
+ <section class="rp-card rp-flow"><h2>핵심 플로우 · 플로우 1: 익명 질문 → 답변 받기 (퍼소나 김서윤, 17세)</h2><pre class="mermaid">
+flowchart LR
+  S2_0["홈 매거진 허브 2.0"] -->|"하단 탭 커뮤니티"| S3_0["커뮤니티 질문 피드 3.0"]
+  S3_0 -->|"만 14-18세 탭에서 질문하기"| S3_1["익명 질문 작성 3.1"]
+  S3_1 -->|"등록"| S3_2["질문 상세 답변 3.2"]
+  S3_1 -.->|"입력 빠짐 또는 부적절한 글 사진"| S3_1
+  S3_1 -.->|"첫 등록"| N1["푸시 알림 동의 (새 화면)"]
+  N1 -->|"동의"| S3_2
+  S3_2 -->|"새 답변 푸시 누름, 채택 또는 댓글"| S3_2
+  S3_1 -.->|"등록 전 AI가 전문가 확인 권함, 전문가에게 묻기"| N2["전문가 질문 작성 4.2"]
+  S3_2 -->|"전문가에게 묻기"| N2
+  N2 -->|"보내고 이 채팅에서 답변 기다림"| N2
+  classDef has fill:#e8f1ff,stroke:#4a7fd6
+  classDef none fill:#fff4e0,stroke:#d68a1a,stroke-dasharray:4
+  classDef new fill:#ffecec,stroke:#c44,stroke-dasharray:4
+  class S2_0,S3_0,S3_1,S3_2 has
+  class N1 new
+  class N2 has
+</pre></section>
+ <section class="rp-card rp-check"><h2>기획 점검 결과</h2><table class="rp-table"><tr><th>핵심 기능</th><th>판정</th><th>그래서</th></tr>
+  <tr><td>커뮤니티 (익명 질문·또래 답변·AI 검수)</td><td style="white-space:nowrap"><span class="rp-tag rp-ok">들어감</span></td><td>건강 글은 등록 전에 AI가 알려주게 바꿈</td></tr>
+  <tr><td>AI Q&amp;A · 전문가 질의응답</td><td style="white-space:nowrap"><span class="rp-tag rp-weak">약함</span></td><td>질문 상세에 "전문가에게 묻기" 추가</td></tr>
+  <tr><td>AI Q&amp;A · 언니 AI, 성지식 사전</td><td style="white-space:nowrap"><span class="rp-tag rp-miss">빠짐</span></td><td>플로우 3 추가 (답변 속 용어 → 사전 설명 창)</td></tr>
+  <tr><td>본인인증, 튜토리얼</td><td style="white-space:nowrap"><span class="rp-tag rp-miss">빠짐</span></td><td>플로우 2 추가</td></tr>
+  <tr><td>성지식 매거진</td><td style="white-space:nowrap"><span class="rp-tag rp-weak">약함</span></td><td>다음에 정함</td></tr>
+  <tr><td>신고</td><td style="white-space:nowrap"><span class="rp-tag rp-weak">약함</span></td><td>다음에 정함</td></tr>
+  <tr><td>푸시 알림</td><td style="white-space:nowrap"><span class="rp-tag rp-ok">들어감</span></td><td>알림에 내용 숨기기</td></tr>
+ </table></section>
+ <section class="rp-card rp-design"><h2>디자인 방향</h2><p class="rp-empty">디자인은 진행 중이라 이번 요약에서 뺐어요</p></section>
+ <section class="rp-card rp-decide"><h2>우리가 내린 결정과 이유</h2><ol>
+  <li><b>커뮤니티에서 전문가 답변을 뺌.</b> 커뮤니티는 또래 답변 + AI 검수만. 전문가 접촉은 AI Q&amp;A로 모음</li>
+  <li><b>건강 글은 등록 전에 AI가 알려줌</b> (전문가에게 묻기 / 고쳐 쓰기). 김서윤의 관심사가 대부분 건강 주제라, 글이 올라갔다 사라지면 혼란스러움</li>
+  <li><b>푸시 알림에 내용을 숨김</b> ("새 알림이 있어요"만). 잠금 화면에서 가족에게 질문 내용이 보이지 않게 (P2·P11)</li>
+ </ol></section>
+ <section class="rp-card rp-screens"><h2>주요 화면 (핵심 플로우 순서)</h2><p class="rp-empty">디자인은 진행 중이라 이번 요약에서 뺐어요</p></section>
+ <section class="rp-card rp-next"><h2>다음에 할 일</h2><ul>
+  <li>디자인 화면 이어서 만들기 (순서표 4번 전문가 질문 작성부터)</li>
+  <li>남은 새 화면 와이어프레임 5개 (/add-screen)</li>
+  <li>기획 점검 남은 것: 매거진·신고, 채택·댓글을 기획서에 넣을지</li>
+ </ul></section>
+</div>
+<script>
+mermaid.initialize({startOnLoad:true,theme:"neutral",flowchart:{htmlLabels:false}});
+document.getElementById("rp-save").onclick=async()=>{const m=document.getElementById("rp-msg");
+ if(!window.html2canvas){m.textContent="인터넷이 안 돼서 저장 도구를 못 불러왔어요. 화면 캡처로 저장하세요.";return}
+ m.textContent="만드는 중이에요.";
+ try{const c=await html2canvas(document.getElementById("rp-board"),{scale:1.5,backgroundColor:"#ffffff",useCORS:true});
+  const a=document.createElement("a");a.download="summary.png";a.href=c.toDataURL("image/png");a.click();m.textContent="summary.png 로 저장했어요. 다운로드 폴더를 확인하세요."}
+ catch(e){m.textContent="저장하지 못했어요. 화면 캡처로 저장하세요."}};
+</script></body></html>

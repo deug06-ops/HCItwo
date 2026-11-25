@@ -4,6 +4,57 @@
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script></head><body>
 <h1>서비스명(가제) 서비스 플로우</h1>
 <p class="lg"><span><i style="background:#e8f1ff;border:1px solid #4a7fd6"></i>와이어프레임 있음</span><span><i style="background:#fff4e0;border:1px dashed #d68a1a"></i>와이어프레임 없음</span><span><i style="background:#ffecec;border:1px dashed #c44"></i>새 화면</span></p>
+<h2>전체 서비스 플로우 (굵은 화살표: 핵심 플로우)</h2>
+<div class="box"><pre class="mermaid">
+flowchart LR
+  subgraph G1["1.0 온보딩"]
+    S1_0["온보딩 본인인증 1.0"]
+    N3["약관 동의 (새 화면)"]
+    N5["튜토리얼 (새 화면)"]
+    N4["가입 불가 안내 (새 화면)"]
+  end
+  subgraph G2["2.0 홈"]
+    S2_0["홈 매거진 허브 2.0"]
+    S2_1["매거진 아티클 상세 2.1"]
+  end
+  subgraph G3["3.0 커뮤니티"]
+    S3_0["커뮤니티 질문 피드 3.0"]
+    S3_1["익명 질문 작성 3.1"]
+    N1["푸시 알림 동의 (새 화면)"]
+    S3_2["질문 상세 답변 3.2"]
+  end
+  subgraph G4["4.0 AI QnA"]
+    S4_0["AI QnA 4.0"]
+    N6["언니 AI 채팅 (새 화면)"]
+    N2["전문가 질문 작성 (새 화면)"]
+  end
+  subgraph G5["5.0 사전"]
+    S5_0["성지식 사전 5.0"]
+    N7["용어 설명 창 (새 화면)"]
+  end
+  S1_0 -->|"본인인증"| N3
+  S1_0 -.->|"만 14세 미만"| N4
+  N3 -->|"동의"| N5
+  N5 -->|"시작하기"| S2_0
+  S2_0 ==>|"하단 탭 커뮤니티"| S3_0
+  S3_0 ==>|"질문하기"| S3_1
+  S3_1 ==>|"등록"| S3_2
+  S3_1 -.->|"첫 등록"| N1
+  N1 -->|"동의"| S3_2
+  S3_2 -.->|"AI 전문성 감지 푸시"| N2
+  S3_2 -->|"전문가에게 묻기"| N2
+  S2_0 -->|"기능 카드 AI QnA"| S4_0
+  S4_0 -->|"언니 AI한테 묻기"| N6
+  N6 -->|"밑줄 용어"| N7
+  N7 -->|"닫기"| N6
+  N6 -.->|"전문가에게 물어볼래 제안"| N2
+  N2 -->|"수정 후 등록"| S4_0
+  classDef has fill:#e8f1ff,stroke:#4a7fd6
+  classDef none fill:#fff4e0,stroke:#d68a1a,stroke-dasharray:4
+  classDef new fill:#ffecec,stroke:#c44,stroke-dasharray:4
+  class S1_0,S2_0,S2_1,S3_0,S3_1,S3_2,S4_0,S5_0 has
+  class N1,N2,N3,N4,N5,N6,N7 new
+</pre></div>
 <h2>플로우 1: 익명 질문 → 답변 받기 (핵심)</h2>
 <div class="box"><pre class="mermaid">
 flowchart LR

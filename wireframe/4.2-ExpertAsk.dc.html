@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>전문가 질문 작성</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Noto Sans KR',system-ui,sans-serif;}
+a{color:inherit;text-decoration:none;}
+#leave{display:none}
+#leave:target{display:flex}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FFFFFF; display: flex; flex-direction: column; overflow: hidden; position: relative">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid #E7E3DA; flex-shrink: 0">
+    <a href="#leave" style="display: flex; align-items: center">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2B2A27" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </a>
+    <span style="font-size: 15px; font-weight: 700; color: #2B2A27">전문가에게 질문</span>
+    <span style="width: 18px"></span>
+  </div>
+
+  <div style="flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 20px">
+
+    <div style="background: #F1E6D6; border-radius: 12px; padding: 12px 14px; display: flex; gap: 10px; align-items: flex-start">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C5636" stroke-width="2" style="flex-shrink: 0; margin-top: 1px"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+      <p style="margin: 0; font-size: 13px; color: #7C5636; line-height: 1.55"><b>나만 보는 1:1 질문이에요.</b><br>다른 사용자에게는 보이지 않고, 전문가에게만 익명으로 전달돼요.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <span style="font-size: 12.5px; font-weight: 700; color: #2B2A27">질문 내용 <span style="font-weight: 400; color: #8B887E">· 고쳐서 보낼 수 있어요</span></span>
+      <div style="min-height: 150px; border: 1px solid #E2DFD8; border-radius: 12px; background: #FDFCFA; padding: 14px">
+        <span style="font-size: 13.5px; color: #2B2A27; line-height: 1.7">생리통이 너무 심해서 학교에 가기 힘들 정도예요. 진통제를 먹어도 잘 안 듣는데 병원에 가봐야 할까요?</span>
+      </div>
+      <span style="font-size: 11px; color: #B7B3A8">내용을 모두 지우고 보내면 "질문 내용을 적어주세요" 에러가 뜨고 이 화면에 머물러요</span>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 8px; padding: 12px 14px; border: 1px solid #E7E3DA; border-radius: 12px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B887E" stroke-width="2" style="flex-shrink: 0"><circle cx="12" cy="12" r="9"></circle><polyline points="12 7 12 12 15 14"></polyline></svg>
+      <span style="font-size: 12.5px; color: #2B2A27">보통 <b>○시간</b> 안에 의료진·상담 전문가가 답해요</span>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px">
+      <span style="font-size: 11.5px; color: #8B887E; background: #EDE8DF; padding: 4px 10px; border-radius: 999px; white-space: nowrap">커뮤니티 글에서 옮겨왔어요</span>
+      <span style="font-size: 10.5px; color: #B7B3A8">(또는 "언니 AI 대화에서 옮겨왔어요" — 질문 부분만)</span>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <span style="font-size: 12.5px; font-weight: 700; color: #2B2A27">카테고리</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px">
+        <div style="padding: 7px 14px; border-radius: 999px; background: #A47148; color: #FFFFFF; font-size: 12.5px; font-weight: 700">생리·생리통</div>
+        <div style="padding: 7px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2DFD8; color: #6B6658; font-size: 12.5px">피임</div>
+        <div style="padding: 7px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2DFD8; color: #6B6658; font-size: 12.5px">몸 고민</div>
+        <div style="padding: 7px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2DFD8; color: #6B6658; font-size: 12.5px">연애·관계</div>
+        <div style="padding: 7px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E2DFD8; color: #6B6658; font-size: 12.5px">기타</div>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 10px">
+      <div style="width: 64px; height: 64px; border: 1.5px dashed #D9D5CD; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B887E" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="12" cy="12" r="3"></circle></svg>
+        <span style="font-size: 10px; color: #8B887E">사진 0/3</span>
+      </div>
+      <span style="font-size: 11.5px; color: #8B887E; line-height: 1.5">사진을 첨부할 수 있어요.</span>
+    </div>
+
+  </div>
+
+  <div style="padding: 16px 20px 24px; border-top: 1px solid #E7E3DA; flex-shrink: 0">
+    <a href="Counsel.dc.html">
+      <div style="background: #A47148; color: #FFFFFF; text-align: center; padding: 15px; border-radius: 999px; font-size: 14.5px; font-weight: 700">전문가에게 보내기</div>
+    </a>
+  </div>
+
+  <div id="leave" style="position: absolute; inset: 0; background: rgba(43, 42, 39, 0.45); align-items: center; justify-content: center; padding: 24px">
+    <div style="background: #FFFFFF; border-radius: 16px; padding: 22px 20px 16px; width: 100%; display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 15px; font-weight: 700; color: #2B2A27">보내지 않고 나갈까요?</span>
+        <span style="font-size: 12.5px; color: #8B887E">작성한 내용은 사라져요.</span>
+      </div>
+      <div style="display: flex; gap: 10px">
+        <a href="#" style="flex: 1"><div style="border: 1px solid #E2DFD8; border-radius: 999px; text-align: center; padding: 12px; font-size: 13.5px; font-weight: 700; color: #2B2A27">계속 쓰기</div></a>
+        <a href="Detail.dc.html" style="flex: 1"><div style="background: #A47148; color: #FFFFFF; border-radius: 999px; text-align: center; padding: 12px; font-size: 13.5px; font-weight: 700">나가기</div></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

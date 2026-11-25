@@ -9,7 +9,6 @@
 flowchart LR
   subgraph G1["1.0 온보딩"]
     S1_0["온보딩 본인인증 1.0"]
-    N3["약관 동의 (새 화면)"]
     N5["튜토리얼 (새 화면)"]
     N4["가입 불가 안내 (새 화면)"]
   end
@@ -32,9 +31,8 @@ flowchart LR
     S5_0["성지식 사전 5.0"]
     N7["용어 설명 창 (새 화면)"]
   end
-  S1_0 -->|"본인인증"| N3
+  S1_0 -->|"약관 체크 후 본인인증"| N5
   S1_0 -.->|"만 14세 미만"| N4
-  N3 -->|"동의"| N5
   N5 -->|"시작하기"| S2_0
   S2_0 ==>|"하단 탭 커뮤니티"| S3_0
   S3_0 ==>|"질문하기"| S3_1
@@ -53,7 +51,7 @@ flowchart LR
   classDef none fill:#fff4e0,stroke:#d68a1a,stroke-dasharray:4
   classDef new fill:#ffecec,stroke:#c44,stroke-dasharray:4
   class S1_0,S2_0,S2_1,S3_0,S3_1,S3_2,S4_0,S5_0 has
-  class N1,N2,N3,N4,N5,N6,N7 new
+  class N1,N2,N4,N5,N6,N7 new
 </pre></div>
 <h2>플로우 1: 익명 질문 → 답변 받기 (핵심)</h2>
 <div class="box"><pre class="mermaid">
@@ -77,17 +75,16 @@ flowchart LR
 <h2>플로우 2: 처음 가입하기</h2>
 <div class="box"><pre class="mermaid">
 flowchart LR
-  S1_0["온보딩 본인인증 1.0"] -->|"본인인증 완료"| N3["약관 동의 (새 화면)"]
+  S1_0["온보딩 본인인증 1.0"] -->|"약관 체크 후 본인인증 완료"| N5["튜토리얼 (새 화면)"]
   S1_0 -.->|"인증 취소 또는 실패"| S1_0
   S1_0 -.->|"만 14세 미만"| N4["가입 불가 안내 (새 화면)"]
-  N3 -->|"익명 안내 보고 동의"| N5["튜토리얼 (새 화면)"]
   N5 -->|"넘기다가 시작하기"| S2_0["홈 매거진 허브 2.0"]
   N5 -.->|"건너뛰기, 주의사항 장으로"| N5
   classDef has fill:#e8f1ff,stroke:#4a7fd6
   classDef none fill:#fff4e0,stroke:#d68a1a,stroke-dasharray:4
   classDef new fill:#ffecec,stroke:#c44,stroke-dasharray:4
   class S1_0,S2_0 has
-  class N3,N4,N5 new
+  class N4,N5 new
 </pre></div>
 <h2>플로우 3: 언니 AI에게 묻고 사전으로 더 알아보기</h2>
 <div class="box"><pre class="mermaid">

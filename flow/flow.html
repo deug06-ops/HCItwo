@@ -23,5 +23,20 @@ flowchart LR
   class S2_0,S3_0,S3_1,S3_2,S4_0 has
   class N1,N2 new
 </pre></div>
+<h2>플로우 2: 처음 가입하기</h2>
+<div class="box"><pre class="mermaid">
+flowchart LR
+  S1_0["온보딩 본인인증 1.0"] -->|"본인인증 완료"| N3["약관 동의 (새 화면)"]
+  S1_0 -.->|"인증 취소 또는 실패"| S1_0
+  S1_0 -.->|"만 14세 미만"| N4["가입 불가 안내 (새 화면)"]
+  N3 -->|"익명 안내 보고 동의"| N5["튜토리얼 (새 화면)"]
+  N5 -->|"넘기다가 시작하기"| S2_0["홈 매거진 허브 2.0"]
+  N5 -.->|"건너뛰기, 주의사항 장으로"| N5
+  classDef has fill:#e8f1ff,stroke:#4a7fd6
+  classDef none fill:#fff4e0,stroke:#d68a1a,stroke-dasharray:4
+  classDef new fill:#ffecec,stroke:#c44,stroke-dasharray:4
+  class S1_0,S2_0 has
+  class N3,N4,N5 new
+</pre></div>
 <script>mermaid.initialize({startOnLoad:true,theme:"neutral",flowchart:{htmlLabels:true}})</script>
 </body></html>

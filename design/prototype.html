@@ -1,0 +1,66 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>서비스명(가제) 프로토타입</title>
+<style>
+:root{--main:#3A4482;--main-soft:#E8EAF5;--accent:#3F6B4B;--accent-soft:#E5EFE7;--bg:#F7F3EC;--surface:#ffffff;--text:#2B2A27;--sub:#6B6457;--faint:#8C8577;--line:#E7E1D6;--error:#B3261E;--radius:16px}
+*{box-sizing:border-box}body{margin:0;background:#eceef1;font-family:system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--text)}
+.device{width:390px;max-width:100%;min-height:780px;margin:24px auto;background:var(--bg);border-radius:28px;box-shadow:0 8px 30px rgba(0,0,0,.12);overflow:hidden;position:relative}
+.screen{display:none;min-height:780px}.screen.on{display:block}
+#toast{position:fixed;left:50%;bottom:32px;transform:translateX(-50%);background:#222;color:#fff;padding:10px 16px;border-radius:20px;font-size:14px;opacity:0;transition:.2s;pointer-events:none}#toast.on{opacity:1}
+#idx{position:fixed;right:16px;top:16px;font-size:13px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer}
+#list{position:fixed;right:16px;top:56px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px;display:none;max-height:70vh;overflow:auto;min-width:200px}#list.on{display:block}#list a{display:block;padding:6px 8px;color:var(--text);text-decoration:none;font-size:14px;border-radius:8px}#list a:hover{background:#f2f2f5}
+/* 공통 부품 스타일은 여기 아래에 */
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+.h1{font-size:22px;font-weight:800;line-height:1.4;margin:0}
+.h2{font-size:17px;font-weight:700;margin:0}
+.body{font-size:15px;line-height:1.6;margin:0}
+.meta{font-size:13px;color:var(--sub)}
+.wrap{padding:16px 20px;display:flex;flex-direction:column;gap:16px}
+.screen.has-tab .wrap{padding-bottom:96px}
+.topbar{display:flex;align-items:center;gap:8px;min-height:56px;padding:0 12px;background:var(--surface);border-bottom:1px solid var(--line)}
+.topbar .back{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:0;background:none;cursor:pointer;border-radius:12px}
+.topbar .title{font-size:17px;font-weight:700;flex:1}
+.tabbar{position:absolute;left:0;right:0;bottom:0;display:flex;background:var(--surface);border-top:1px solid var(--line);padding:6px 0 18px}
+.tabbar a{flex:1;min-height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:11px;color:var(--sub)}
+.tabbar a.on{color:var(--main);font-weight:700}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:48px;padding:0 20px;border-radius:999px;border:0;background:var(--main);color:#fff;font-size:15px;font-weight:700;cursor:pointer;transition:transform .08s,filter .15s}
+.btn:active{transform:scale(.98);filter:brightness(.92)}
+.btn.line{background:var(--surface);color:var(--text);border:1px solid var(--line)}
+.btn:disabled{background:var(--line);color:var(--faint);cursor:not-allowed}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:flex;flex-direction:column;gap:8px}
+a.card:active{background:#FBF9F5}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:13px;color:var(--text);display:inline-flex;align-items:center;cursor:pointer}
+.chip.on{background:var(--main);border-color:var(--main);color:#fff;font-weight:700}
+.badge{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;font-size:12px;font-weight:700;background:var(--main-soft);color:var(--main)}
+.badge.ok{background:var(--accent-soft);color:var(--accent)}
+.badge.mute{background:#EFEAE1;color:var(--sub)}
+.input{width:100%;min-height:48px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:12px 14px;font:inherit;font-size:15px;line-height:1.6;color:var(--text);resize:none}
+.input::placeholder{color:var(--faint)}
+.input:focus{outline:2px solid var(--main);outline-offset:-1px}
+.err{color:var(--error);font-size:13px}
+.notice{display:flex;gap:10px;align-items:flex-start;background:var(--main-soft);color:var(--main);border-radius:var(--radius);padding:12px 14px;font-size:13px;line-height:1.55}
+.bubble{max-width:80%;padding:10px 14px;font-size:15px;line-height:1.55;border-radius:18px}
+.bubble.me{align-self:flex-end;background:var(--main);color:#fff;border-bottom-right-radius:6px}
+.bubble.you{align-self:flex-start;background:var(--surface);border:1px solid var(--line);border-bottom-left-radius:6px}
+.dim{position:absolute;inset:0;background:rgba(43,42,39,.45);display:none;align-items:center;justify-content:center;padding:24px;z-index:5}
+.dim.on{display:flex}
+.dialog{background:var(--surface);border-radius:20px;padding:22px 20px 16px;width:100%;display:flex;flex-direction:column;gap:16px}
+.row{display:flex;gap:10px}
+.state-bar{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:10px 12px;border-top:1px dashed var(--line);background:#fff}
+.state-bar button{font-size:12px;min-height:32px;padding:0 10px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--sub)}
+</style></head><body>
+<button id="idx">화면 목록</button><div id="list"></div>
+<div class="device">
+<!-- 화면은 여기에 하나씩 추가: <section class="screen" id="1.0" data-name="홈"> ... </section> -->
+<!-- 화면 끝 -->
+</div>
+<div id="toast"></div>
+<script>
+const S=[...document.querySelectorAll(".screen")],L=document.getElementById("list"),T=document.getElementById("toast");
+L.innerHTML=S.map(s=>`<a href="#${s.id}">${s.id} ${s.dataset.name||""}</a>`).join("");
+document.getElementById("idx").onclick=()=>L.classList.toggle("on");
+function toast(m){T.textContent=m;T.classList.add("on");clearTimeout(T._t);T._t=setTimeout(()=>T.classList.remove("on"),1600)}
+function show(){const id=decodeURIComponent(location.hash.slice(1));const t=S.find(s=>s.id===id)||S[0];if(id&&!S.some(s=>s.id===id))toast("아직 만들지 않은 화면이에요");S.forEach(s=>s.classList.toggle("on",s===t));L.classList.remove("on");window.scrollTo(0,0)}
+addEventListener("hashchange",show);show();
+</script></body></html>

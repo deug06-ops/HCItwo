@@ -38,5 +38,20 @@ flowchart LR
   class S1_0,S2_0 has
   class N3,N4,N5 new
 </pre></div>
+<h2>플로우 3: 언니 AI에게 묻고 사전으로 더 알아보기</h2>
+<div class="box"><pre class="mermaid">
+flowchart LR
+  S2_0["홈 매거진 허브 2.0"] -->|"기능 카드 AI QnA"| S4_0["AI QnA 4.0"]
+  S4_0 -->|"언니 AI한테 묻기"| N6["언니 AI 채팅 (새 화면)"]
+  N6 -->|"답 속 밑줄 용어 누름"| N7["용어 설명 창 (새 화면)"]
+  N7 -->|"닫기"| N6
+  N6 -.->|"전문가 확인 필요, 전문가에게 물어볼래 제안"| N2["전문가 질문 작성 (새 화면)"]
+  N2 -->|"내용 수정 후 등록"| S4_0
+  classDef has fill:#e8f1ff,stroke:#4a7fd6
+  classDef none fill:#fff4e0,stroke:#d68a1a,stroke-dasharray:4
+  classDef new fill:#ffecec,stroke:#c44,stroke-dasharray:4
+  class S2_0,S4_0 has
+  class N2,N6,N7 new
+</pre></div>
 <script>mermaid.initialize({startOnLoad:true,theme:"neutral",flowchart:{htmlLabels:true}})</script>
 </body></html>

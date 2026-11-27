@@ -338,6 +338,41 @@ a.card:active{background:#FBF8FC}
   function q32State(has){document.getElementById('q32List').hidden=!has;document.getElementById('q32Wait').hidden=has;document.getElementById('q32Count').textContent=has?'또래 답변 3':'또래 답변'}
   </script>
 </section>
+<section class="screen" id="1.0" data-name="온보딩 · 본인인증">
+  <div class="wrap" style="min-height:780px;gap:22px;padding-top:24px">
+    <div style="display:flex;align-items:center;gap:8px"><span style="width:26px;height:26px;border-radius:50%;background:var(--grad)"></span><b style="font-size:15px">서비스명</b><span class="badge mute">가제</span></div>
+    <div style="display:flex;flex-direction:column;gap:8px;padding-top:24px">
+      <h1 class="h1">먼저,<br>본인인증을 해주세요</h1>
+      <p class="meta" style="margin:0;font-size:15px;line-height:1.6">인증한 나이에 맞는 안전한 공간으로 안내해드릴게요. 활동은 모두 익명이에요.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:auto">
+      <b style="font-size:13px;color:var(--sub)">인증하면 나이에 따라 이렇게 나뉘어요</b>
+      <div class="card" style="gap:4px"><b style="font-size:15px">만 14~18세</b><span class="meta">만 14~18세 커뮤니티 · 일부 매거진은 볼 수 없어요</span></div>
+      <div class="card" style="gap:4px"><b style="font-size:15px">만 19세 이상</b><span class="meta">만 19세 이상 커뮤니티 · 만 14~18세 커뮤니티에 선배로 답변만 가능</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="notice"><svg class="ico" viewBox="0 0 24 24" style="width:18px;height:18px;margin-top:1px"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span><b>인증은 나이 확인에만 써요.</b><br>이름·전화번호는 다른 사용자에게 절대 보이지 않고, 활동은 모두 익명으로 표시돼요.</span></div>
+      <div style="display:flex;align-items:center">
+        <button id="q10Agree" aria-pressed="false" onclick="q10Toggle()" style="flex:1;min-height:44px;display:flex;align-items:center;gap:10px;border:0;background:none;padding:0;cursor:pointer;text-align:left;font-size:13px;color:var(--text)"><span id="q10Box" style="width:22px;height:22px;border-radius:7px;border:1.5px solid var(--line);background:var(--surface);display:flex;align-items:center;justify-content:center;flex-shrink:0"></span>(필수) 이용약관·개인정보 처리방침에 동의해요</button>
+        <button class="act" style="text-decoration:underline" onclick="toast('약관 전문 (프로토타입에서는 생략)')">보기</button>
+      </div>
+      <button class="btn" id="q10Btn" disabled onclick="q10Verify()">휴대폰으로 본인인증하기</button>
+      <p class="err" id="q10Err" hidden style="margin:0;text-align:center"></p>
+      <p class="meta" style="margin:0;text-align:center;font-size:12px">만 14세 미만은 가입할 수 없어요</p>
+    </div>
+  </div>
+  <div class="state-bar">
+    <button onclick="q10Demo('fail')">인증 취소·실패 보기</button>
+    <button onclick="q10Demo('under')">만 14세 미만 보기</button>
+  </div>
+  <script>
+  function q10Toggle(){const b=document.getElementById('q10Agree'),on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);const x=document.getElementById('q10Box');x.style.background=on?'var(--grad)':'var(--surface)';x.style.borderColor=on?'transparent':'var(--line)';x.innerHTML=on?'<svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;color:var(--on-grad);stroke-width:3"><path d="M20 6L9 17l-5-5"/></svg>':'';document.getElementById('q10Btn').disabled=!on;document.getElementById('q10Err').hidden=true}
+  function q10Verify(){toast('본인인증을 마쳤어요 · 만 14~18세');setTimeout(()=>location.hash='1.2',1000)}
+  function q10Demo(k){if(document.getElementById('q10Btn').disabled)q10Toggle();
+    if(k==='fail'){const e=document.getElementById('q10Err');e.textContent='인증이 취소됐어요. 다시 시도해 주세요.';e.hidden=false}
+    if(k==='under'){location.hash='1.3'}}
+  </script>
+</section>
 <!-- 화면 끝 -->
 </div>
 <div id="toast"></div>

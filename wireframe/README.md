@@ -14,4 +14,6 @@
 - `3.3-PushBanner.dc.html` — ⑪ 푸시 알림 동의 (질문 작성 위쪽에 작게 뜨는 배너, 뒤 화면을 가리지 않음)
 - `Library.dc.html` — ⑧ 성지식 사전 (검색, 카테고리별 용어사전)
 
+색은 디자인 스타일 가이드(`design/style-guide.md`)의 최종 색(#EEBAB7 → #BAA8D6 그라데이션, 진한 라벤더 #5E4E8E)을 따른다 (2026-11-27).
+
 `canvas.json`은 각 화면(artboard)의 캔버스 배치 정보를 담은 인덱스 파일이며, 원본은 Claude Artifact(Design 캔버스)로 작성되었다.

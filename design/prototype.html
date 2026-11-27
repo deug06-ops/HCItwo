@@ -1,7 +1,7 @@
 <!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>서비스명(가제) 프로토타입</title>
 <style>
-:root{--grad:linear-gradient(135deg,#E09DC3,#B07EAA);--on-grad:#2A1627;--bg-grad:linear-gradient(180deg,#FCEEF6 0%,#F8F2F8 45%,#F6F0F6 100%);--main:#7E4475;--main-soft:#F8E8F1;--accent:#3F6587;--accent-soft:#E9F0F6;--peer:#3F7347;--peer-soft:#E9F3EA;--bg:#FBF6F9;--surface:#ffffff;--text:#2E2430;--sub:#6E5F6B;--faint:#958592;--line:#EEDFE8;--error:#B3261E;--radius:16px}
+:root{--grad:linear-gradient(135deg,#EEBAB7,#BAA8D6);--on-grad:#2B2236;--bg-grad:linear-gradient(180deg,#FDF1EF 0%,#F8F3F8 45%,#F4F1F9 100%);--main:#5E4E8E;--main-soft:#F1ECF8;--accent:#3F6587;--accent-soft:#E9F0F6;--peer:#3F7347;--peer-soft:#E9F3EA;--bg:#FAF6F8;--surface:#ffffff;--text:#2B2236;--sub:#675E73;--faint:#8F87A0;--line:#ECE4EE;--error:#B3261E;--radius:16px}
 *{box-sizing:border-box}body{margin:0;background:#eceef1;font-family:system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--text)}
 .device{width:390px;max-width:100%;min-height:780px;margin:24px auto;background:var(--bg-grad);border-radius:28px;box-shadow:0 8px 30px rgba(0,0,0,.12);overflow:hidden;position:relative}
 .screen{display:none;min-height:780px}.screen.on{display:block}
@@ -28,14 +28,14 @@ button{font:inherit;color:inherit}
 .btn.line{background:var(--surface);color:var(--text);border:1px solid var(--line)}
 .btn:disabled{background:var(--line);color:var(--faint);cursor:not-allowed}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:flex;flex-direction:column;gap:8px}
-a.card:active{background:#FDF8FB}
+a.card:active{background:#FBF8FC}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{min-height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:13px;color:var(--text);display:inline-flex;align-items:center;cursor:pointer}
 .chip.on{background:var(--grad);border-color:transparent;color:var(--on-grad);font-weight:800}
 .badge{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;font-size:12px;font-weight:700;background:var(--main-soft);color:var(--main)}
 .badge.ok{background:var(--accent-soft);color:var(--accent)}
 .badge.peer{background:var(--peer-soft);color:var(--peer)}
-.badge.mute{background:#F1E6EC;color:var(--sub)}
+.badge.mute{background:#EFEAF4;color:var(--sub)}
 .input{width:100%;min-height:48px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:12px 14px;font:inherit;font-size:15px;line-height:1.6;color:var(--text);resize:none}
 .input::placeholder{color:var(--faint)}
 .input:focus{outline:2px solid var(--main);outline-offset:-1px}
@@ -44,19 +44,19 @@ a.card:active{background:#FDF8FB}
 .bubble{max-width:80%;padding:10px 14px;font-size:15px;line-height:1.55;border-radius:18px}
 .bubble.me{align-self:flex-end;background:var(--main);color:#fff;border-bottom-right-radius:6px}
 .bubble.you{align-self:flex-start;background:var(--surface);border:1px solid var(--line);border-bottom-left-radius:6px}
-.dim{position:absolute;inset:0;background:rgba(46,36,48,.45);display:none;align-items:center;justify-content:center;padding:24px;z-index:5}
+.dim{position:absolute;inset:0;background:rgba(43,34,54,.45);display:none;align-items:center;justify-content:center;padding:24px;z-index:5}
 .dim.on{display:flex}
 .dialog{background:var(--surface);border-radius:20px;padding:22px 20px 16px;width:100%;display:flex;flex-direction:column;gap:16px}
 .row{display:flex;gap:10px}
 .row .btn{padding:0 12px;white-space:nowrap}
 .screen.has-tab.on{height:780px;overflow-y:auto}
 .ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-.ph{background:#EFE3EA;color:var(--sub);font-size:12px;display:flex;align-items:center;justify-content:center;text-align:center}
+.ph{background:#ECE6F1;color:var(--sub);font-size:12px;display:flex;align-items:center;justify-content:center;text-align:center}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.seg{display:flex;background:#F1E6EC;border-radius:999px;padding:4px;gap:4px}
+.seg{display:flex;background:#EFEAF4;border-radius:999px;padding:4px;gap:4px}
 .seg button{flex:1;min-height:44px;border:0;border-radius:999px;background:none;font-size:14px;font-weight:600;color:var(--sub);cursor:pointer}
 .seg button.on{background:var(--surface);color:var(--text);font-weight:700;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.fab{position:absolute;right:20px;bottom:96px;width:56px;height:56px;border-radius:50%;background:var(--grad);color:var(--on-grad);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(176,126,170,.45);z-index:3}
+.fab{position:absolute;right:20px;bottom:96px;width:56px;height:56px;border-radius:50%;background:var(--grad);color:var(--on-grad);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(186,168,214,.55);z-index:3}
 .fab:active{transform:scale(.95)}
 .search{display:flex;align-items:center;gap:8px;min-height:48px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:0 14px}
 .search input{border:0;outline:0;flex:1;font:inherit;font-size:15px;background:none;color:var(--text);min-height:44px}
@@ -71,7 +71,7 @@ a.card:active{background:#FDF8FB}
   <div class="wrap">
     <div style="display:flex;align-items:center;justify-content:space-between">
       <div style="display:flex;align-items:center;gap:8px"><span style="width:26px;height:26px;border-radius:50%;background:var(--grad)"></span><b style="font-size:15px">서비스명</b><span class="badge mute">가제</span></div>
-      <span style="width:28px;height:28px;border-radius:50%;background:#EFE3EA"></span>
+      <span style="width:28px;height:28px;border-radius:50%;background:#ECE6F1"></span>
     </div>
     <div style="display:flex;flex-direction:column;gap:4px">
       <h1 class="h1">안녕, 오늘은<br>뭐가 궁금해?</h1>
@@ -95,7 +95,7 @@ a.card:active{background:#FDF8FB}
       </a>
       <a href="#2.1" class="card" style="flex-direction:row;align-items:center;gap:12px"><div class="ph" style="width:64px;height:64px;border-radius:12px;flex-shrink:0">이미지</div><div style="display:flex;flex-direction:column;gap:6px"><span class="badge" style="align-self:flex-start">생리·생리통</span><b style="font-size:15px;line-height:1.4">생리통, 참지 말고 이렇게 관리해봐</b></div></a>
       <a href="#2.1" class="card" style="flex-direction:row;align-items:center;gap:12px"><div class="ph" style="width:64px;height:64px;border-radius:12px;flex-shrink:0">이미지</div><div style="display:flex;flex-direction:column;gap:6px"><span class="badge" style="align-self:flex-start">기초 성지식</span><b style="font-size:15px;line-height:1.4">피임, 처음이라 헷갈린다면 이것부터</b></div></a>
-      <button class="card" onclick="toast('만 19세 이상만 볼 수 있는 아티클이에요')" style="flex-direction:row;align-items:center;gap:12px;background:#F6EFF4;border-style:dashed;text-align:left;cursor:pointer;width:100%"><div class="ph" style="width:64px;height:64px;border-radius:12px;flex-shrink:0"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><div style="display:flex;flex-direction:column;gap:6px"><span class="badge mute" style="align-self:flex-start">만 19세 이상</span><b style="font-size:15px;color:var(--sub)">만 19세 이상만 볼 수 있는 아티클이에요</b></div></button>
+      <button class="card" onclick="toast('만 19세 이상만 볼 수 있는 아티클이에요')" style="flex-direction:row;align-items:center;gap:12px;background:#F4F0F8;border-style:dashed;text-align:left;cursor:pointer;width:100%"><div class="ph" style="width:64px;height:64px;border-radius:12px;flex-shrink:0"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><div style="display:flex;flex-direction:column;gap:6px"><span class="badge mute" style="align-self:flex-start">만 19세 이상</span><b style="font-size:15px;color:var(--sub)">만 19세 이상만 볼 수 있는 아티클이에요</b></div></button>
     </div>
   </div>
   <nav class="tabbar">
@@ -107,7 +107,7 @@ a.card:active{background:#FDF8FB}
 </section>
 <section class="screen has-tab" id="3.0" data-name="커뮤니티 · 질문 피드">
   <div class="wrap" style="gap:14px;padding-bottom:168px">
-    <div style="display:flex;align-items:center;justify-content:space-between;min-height:44px"><h1 class="h2" style="font-size:20px">커뮤니티</h1><span style="width:28px;height:28px;border-radius:50%;background:#EFE3EA"></span></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;min-height:44px"><h1 class="h2" style="font-size:20px">커뮤니티</h1><span style="width:28px;height:28px;border-radius:50%;background:#ECE6F1"></span></div>
     <div class="seg" role="tablist">
       <button class="on" role="tab" aria-selected="true">만 14~18세</button>
       <button role="tab" aria-selected="false" onclick="toast('만 19세 이상만 들어갈 수 있어요')" style="color:var(--faint)"><svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;vertical-align:-2px;margin-right:4px"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>만 19세 이상</button>

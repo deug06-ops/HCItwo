@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>매거진 목록 · 검색 결과</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Noto Sans KR',system-ui,sans-serif;}
+a{color:inherit;text-decoration:none;}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: linear-gradient(180deg,#FDF1EF 0%,#F8F3F8 45%,#F4F1F9 100%); display: flex; flex-direction: column; position: relative; overflow: hidden">
+  <div style="padding: 14px 20px 10px; display: flex; flex-direction: column; gap: 12px; flex-shrink: 0">
+    <div style="display: flex; align-items: center; gap: 8px">
+      <a href="Home.dc.html" aria-label="뒤로" style="width: 36px; height: 36px; display: flex; align-items: center; margin-left: -8px; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2B2236" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></a>
+      <span style="font-weight: 700; font-size: 15px; color: #2B2236">매거진</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px; background: #FFFFFF; border: 1.5px solid #5E4E8E; border-radius: 12px; padding: 10px 14px">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#675E73" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <span style="font-size: 13px; color: #2B2236; flex: 1">생리 주기</span>
+      <span aria-label="검색어 지우기" style="width: 20px; height: 20px; border-radius: 50%; background: #E6DFEE; display: flex; align-items: center; justify-content: center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#675E73" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
+    </div>
+    <div style="display: flex; gap: 8px; overflow-x: auto">
+      <div style="padding: 7px 14px; border-radius: 999px; background: linear-gradient(135deg,#EEBAB7,#BAA8D6); color: #2B2236; font-size: 12px; font-weight: 700; flex-shrink: 0">전체</div>
+      <div style="padding: 7px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E6DFEE; color: #675E73; font-size: 12px; flex-shrink: 0">생리·생리통</div>
+      <div style="padding: 7px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E6DFEE; color: #675E73; font-size: 12px; flex-shrink: 0">연애와 관계</div>
+      <div style="padding: 7px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E6DFEE; color: #675E73; font-size: 12px; flex-shrink: 0">기초 성지식</div>
+      <div style="padding: 7px 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #E6DFEE; color: #675E73; font-size: 12px; flex-shrink: 0">피임</div>
+    </div>
+  </div>
+  <div style="flex: 1; overflow-y: auto; padding: 6px 20px 24px; display: flex; flex-direction: column; gap: 10px">
+    <a href="Article.dc.html"><div style="background: #FFFFFF; border: 1px solid #ECE4EE; border-radius: 14px; padding: 14px; display: flex; gap: 12px; align-items: center">
+      <div style="width: 64px; height: 64px; border-radius: 10px; background: #E6DFEE; flex-shrink: 0"></div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 12px; font-weight: 700; color: #3F6587; background: #E9F0F6; padding: 2px 8px; border-radius: 999px; align-self: flex-start">생리·생리통</span>
+        <p style="margin: 0; font-size: 13.5px; font-weight: 700; color: #2B2236; line-height: 1.4">생리 주기, 왜 매달 조금씩 다를까?</p>
+      </div>
+    </div></a>
+    <a href="Article.dc.html"><div style="background: #FFFFFF; border: 1px solid #ECE4EE; border-radius: 14px; padding: 14px; display: flex; gap: 12px; align-items: center">
+      <div style="width: 64px; height: 64px; border-radius: 10px; background: #E6DFEE; flex-shrink: 0"></div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 12px; font-weight: 700; color: #3F6587; background: #E9F0F6; padding: 2px 8px; border-radius: 999px; align-self: flex-start">생리·생리통</span>
+        <p style="margin: 0; font-size: 13.5px; font-weight: 700; color: #2B2236; line-height: 1.4">시험 기간에 생리가 늦어지는 이유</p>
+      </div>
+    </div></a>
+    <a href="Article.dc.html"><div style="background: #FFFFFF; border: 1px solid #ECE4EE; border-radius: 14px; padding: 14px; display: flex; gap: 12px; align-items: center">
+      <div style="width: 64px; height: 64px; border-radius: 10px; background: #E6DFEE; flex-shrink: 0"></div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 12px; font-weight: 700; color: #3F7347; background: #E9F3EA; padding: 2px 8px; border-radius: 999px; align-self: flex-start">기초 성지식</span>
+        <p style="margin: 0; font-size: 13.5px; font-weight: 700; color: #2B2236; line-height: 1.4">생리 주기 기록, 이렇게 시작해봐</p>
+      </div>
+    </div></a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

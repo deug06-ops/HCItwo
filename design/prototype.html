@@ -89,6 +89,7 @@ body{background:var(--bg)}
 .screen.sheet.on{display:flex;align-items:flex-end}
 .sheet-box{background:var(--surface);border-radius:24px 24px 0 0;padding:20px 20px 24px;width:100%;display:flex;flex-direction:column;gap:12px;animation:up .22s ease-out}
 @keyframes up{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+.q22tabs .chip{flex-shrink:0;white-space:nowrap}
 .term{border:0;background:none;padding:0;font:inherit;color:var(--main);font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 </style></head><body>
 <button id="idx">화면 목록</button><div id="list"></div>
@@ -112,10 +113,10 @@ body{background:var(--bg)}
       <a href="#3.0" class="card" style="gap:6px"><svg class="ico" style="color:var(--main)" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 1 1 16.1-3.8z"/></svg><b style="font-size:15px">커뮤니티</b><span class="meta" style="line-height:1.4">익명으로 묻고 댓글로 이야기하기</span></a>
       <a href="#4.0" class="card" style="gap:6px"><svg class="ico" style="color:var(--main)" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg><b style="font-size:15px">AI Q&amp;A</b><span class="meta" style="line-height:1.4">언니 AI와 전문가에게 1:1로 묻기</span></a>
       <a href="#5.0" class="card" style="gap:6px"><svg class="ico" style="color:var(--main)" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 1 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/></svg><b style="font-size:15px">성지식 사전</b><span class="meta" style="line-height:1.4">기초 지식을 쉬운 말로 찾아보기</span></a>
-      <a href="#2.1" class="card" style="gap:6px;background:var(--main-soft);border-color:var(--main-soft)"><svg class="ico" style="color:var(--main)" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg><b style="font-size:15px;color:var(--main)">매거진</b><span style="font-size:13px;color:var(--main);line-height:1.4">연애·몸·관계 이야기 읽어보기</span></a>
+      <a href="#2.2" class="card" style="gap:6px;background:var(--main-soft);border-color:var(--main-soft)"><svg class="ico" style="color:var(--main)" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg><b style="font-size:15px;color:var(--main)">매거진</b><span style="font-size:13px;color:var(--main);line-height:1.4">연애·몸·관계 이야기 읽어보기</span></a>
     </div>
     <div style="display:flex;flex-direction:column;gap:10px">
-      <div style="display:flex;align-items:center;justify-content:space-between"><h2 class="h2">이번 주 매거진</h2><a href="#2.1" class="meta" style="min-height:44px;display:flex;align-items:center">더보기</a></div>
+      <div style="display:flex;align-items:center;justify-content:space-between"><h2 class="h2">이번 주 매거진</h2><a href="#2.2" class="meta" style="min-height:44px;display:flex;align-items:center">더보기</a></div>
       <a href="#2.1" class="card" style="padding:0;overflow:hidden;gap:0">
         <div class="ph" style="height:140px">아티클 대표 이미지</div>
         <div style="padding:14px 16px;display:flex;flex-direction:column;gap:6px"><span class="badge" style="align-self:flex-start">연애와 관계</span><b style="font-size:15px;line-height:1.45">소개팅, 썸… 어디까지 진도 나가야 할까?</b><span class="meta">OO 언니 · <span style="color:var(--accent);font-weight:700">전문가 감수</span> · 4분</span></div>
@@ -443,6 +444,59 @@ body{background:var(--bg)}
     <b style="font-size:19px">PMS (생리 전 증후군)</b>
     <p class="body">생리 시작 1~2주 전에 몸과 마음이 달라지는 걸 말해요. 가슴이 붓거나, 예민해지거나, 기분이 가라앉을 수 있어요. 생리가 시작되면 대부분 나아져요.</p>
     <a href="#4.1" class="btn line">닫기</a>
+  </div>
+</section>
+<section class="screen" id="2.2" data-name="매거진 목록">
+  <div class="topbar"><a href="#2.0" class="back" aria-label="뒤로"><svg class="ico" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></a><span class="title">매거진</span></div>
+  <div class="wrap" style="gap:12px">
+    <div class="search"><svg class="ico" viewBox="0 0 24 24" style="width:18px;height:18px;color:var(--sub)"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg><input id="q22Q" type="text" placeholder="궁금한 주제를 검색해보세요" aria-label="매거진 검색" oninput="q22Find()"><button id="q22X" hidden aria-label="검색어 지우기" onclick="q22Clear()" style="width:44px;height:44px;margin-right:-10px;border:0;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center"><span style="width:22px;height:22px;border-radius:50%;background:var(--mute);display:flex;align-items:center;justify-content:center"><svg class="ico" viewBox="0 0 24 24" style="width:12px;height:12px;stroke-width:3"><path d="M18 6L6 18M6 6l12 12"/></svg></span></button></div>
+    <div class="chips q22tabs" style="flex-wrap:nowrap;overflow-x:auto;margin:0 -20px;padding:0 20px"><button class="chip on" onclick="q22Tab(this)">전체</button><button class="chip" onclick="q22Tab(this)">생리·생리통</button><button class="chip" onclick="q22Tab(this)">연애와 관계</button><button class="chip" onclick="q22Tab(this)">기초 성지식</button><button class="chip" onclick="q22Tab(this)">피임</button></div>
+    <div id="q22List" style="display:flex;flex-direction:column;gap:10px">
+      <a href="#2.1" class="card q22c" data-t="생리·생리통" style="flex-direction:row;align-items:center;gap:12px"><div class="ph" style="width:64px;height:64px;border-radius:12px;flex-shrink:0"></div><div style="display:flex;flex-direction:column;gap:6px"><span class="badge ok" style="align-self:flex-start">생리·생리통</span><b style="font-size:15px;line-height:1.4">생리 주기, 왜 매달 조금씩 다를까?</b></div></a>
+      <a href="#2.1" class="card q22c" data-t="생리·생리통" data-k="생리 주기 늦어짐" style="flex-direction:row;align-items:center;gap:12px"><div class="ph" style="width:64px;height:64px;border-radius:12px;flex-shrink:0"></div><div style="display:flex;flex-direction:column;gap:6px"><span class="badge ok" style="align-self:flex-start">생리·생리통</span><b style="font-size:15px;line-height:1.4">시험 기간에 생리가 늦어지는 이유</b></div></a>
+      <a href="#2.1" class="card q22c" data-t="기초 성지식" style="flex-direction:row;align-items:center;gap:12px"><div class="ph" style="width:64px;height:64px;border-radius:12px;flex-shrink:0"></div><div style="display:flex;flex-direction:column;gap:6px"><span class="badge peer" style="align-self:flex-start">기초 성지식</span><b style="font-size:15px;line-height:1.4">생리 주기 기록, 이렇게 시작해봐</b></div></a>
+      <a href="#2.1" class="card q22c" data-t="연애와 관계" style="flex-direction:row;align-items:center;gap:12px"><div class="ph" style="width:64px;height:64px;border-radius:12px;flex-shrink:0"></div><div style="display:flex;flex-direction:column;gap:6px"><span class="badge " style="align-self:flex-start">연애와 관계</span><b style="font-size:15px;line-height:1.4">소개팅, 썸… 어디까지 진도 나가야 할까?</b></div></a>
+      <a href="#2.1" class="card q22c" data-t="생리·생리통" style="flex-direction:row;align-items:center;gap:12px"><div class="ph" style="width:64px;height:64px;border-radius:12px;flex-shrink:0"></div><div style="display:flex;flex-direction:column;gap:6px"><span class="badge ok" style="align-self:flex-start">생리·생리통</span><b style="font-size:15px;line-height:1.4">생리통, 참지 말고 이렇게 관리해봐</b></div></a>
+      <a href="#2.1" class="card q22c" data-t="피임" style="flex-direction:row;align-items:center;gap:12px"><div class="ph" style="width:64px;height:64px;border-radius:12px;flex-shrink:0"></div><div style="display:flex;flex-direction:column;gap:6px"><span class="badge " style="align-self:flex-start">피임</span><b style="font-size:15px;line-height:1.4">피임, 처음이라 헷갈린다면 이것부터</b></div></a>
+    </div>
+    <div id="q22Empty" hidden style="display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center;padding-top:24px">
+      <span style="width:56px;height:56px;border-radius:50%;background:var(--mute);display:flex;align-items:center;justify-content:center;color:var(--sub)"><svg class="ico" viewBox="0 0 24 24" style="width:24px;height:24px"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></span>
+      <b style="font-size:17px">아직 이 주제의 아티클이 없어요</b>
+      <span class="meta">없는 매거진은 추가 요청할 수 있어요</span>
+      <div class="card" style="width:100%;text-align:left;margin-top:4px">
+        <label for="q22R" style="font-size:13px;font-weight:700;color:var(--sub)">이런 글이 필요해요 (제목 한 줄)</label>
+        <input class="input" id="q22R" oninput="document.getElementById('q22Req').disabled=!this.value.trim()">
+        <button class="btn" id="q22Req" onclick="q22Request()">요청하기</button>
+      </div>
+    </div>
+  </div>
+  <div class="state-bar"><button onclick="q22Demo('생리 주기')">"생리 주기" 검색해 보기</button><button onclick="q22Demo('생리컵 세척 방법')">결과 없음 보기</button></div>
+  <script>
+  let q22T='전체';
+  function q22Tab(b){document.querySelectorAll('[id="2.2"] .chip').forEach(c=>c.classList.toggle('on',c===b));q22T=b.textContent;q22Find()}
+  function q22Find(){const q=document.getElementById('q22Q').value.trim().replace(/\s+/g,' ');document.getElementById('q22X').hidden=!q;let n=0;
+    document.querySelectorAll('[id="2.2"] .q22c').forEach(c=>{const ok=(q22T==='전체'||c.dataset.t===q22T)&&(!q||(c.textContent+' '+(c.dataset.k||'')).replace(/\s+/g,' ').includes(q));c.hidden=!ok;if(ok)n++});
+    document.getElementById('q22Empty').hidden=n>0;const r=document.getElementById('q22R');r.value=q;document.getElementById('q22Req').disabled=!q}
+  function q22Clear(){document.getElementById('q22Q').value='';q22Find();document.getElementById('q22Q').focus()}
+  function q22Request(){if(!document.getElementById('q22R').value.trim())return;toast('요청했어요. 아티클이 올라오면 알려드릴게요');document.getElementById('q22Req').disabled=true}
+  function q22Demo(v){document.getElementById('q22Q').value=v;q22Find()}
+  </script>
+</section>
+<section class="screen" id="2.1" data-name="매거진 아티클 상세">
+  <div class="topbar"><a href="#2.2" class="back" aria-label="뒤로"><svg class="ico" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></a><span class="title">매거진</span><button class="act" aria-label="저장" onclick="this.classList.toggle('on');toast(this.classList.contains('on')?'저장했어요':'저장을 취소했어요')"><svg class="ico" viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button></div>
+  <div class="ph" style="height:190px">아티클 대표 이미지</div>
+  <div class="wrap" style="gap:14px;background:var(--surface)">
+    <div style="display:flex;gap:6px"><span class="badge ok">생리·생리통</span><span class="badge mute">전체 연령</span></div>
+    <h1 class="h1">생리 주기, 왜 매달 조금씩 다를까?</h1>
+    <span class="meta">OO 언니 · 전문가 감수 · 읽는 시간 4분</span>
+    <p class="body">"지난달엔 28일이었는데 이번엔 35일?" 주기가 매달 똑같지 않아서 걱정될 때가 있어. 특히 생리를 시작한 지 몇 년 안 됐다면 주기가 들쭉날쭉한 건 흔한 일이야.</p>
+    <div class="card" style="background:var(--main-soft);border-color:transparent;gap:8px">
+      <b style="color:var(--main);font-size:15px">언니가 알려주는 포인트</b>
+      <p class="body">보통 21~35일 사이면 괜찮아. 시험, 다이어트, 수면 부족처럼 몸과 마음이 힘들 때는 며칠씩 늦어지기도 해.</p>
+      <p class="body">달력이나 앱에 시작일을 적어 두면 내 주기가 보이기 시작해. 3달 넘게 생리가 없거나 너무 자주 하면 병원에서 확인해 보자.</p>
+    </div>
+    <a href="#5.0" class="notice" style="align-items:center;min-height:48px;justify-content:space-between"><span>생리 주기에 대해 더 궁금하면 성지식 사전에서 찾아보기</span><span>→</span></a>
+    <a href="#3.1" class="notice" style="align-items:center;min-height:48px;justify-content:space-between;background:var(--peer-soft);color:var(--peer)"><span>더 궁금한 건 커뮤니티에 익명으로 물어보기</span><span>→</span></a>
   </div>
 </section>
 <!-- 화면 끝 -->

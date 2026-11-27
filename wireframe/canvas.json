@@ -210,6 +210,22 @@
       "w": 390,
       "x": 3760,
       "y": 2200
+    },
+    "2.2-MagazineList.dc.html": {
+      "x": 940,
+      "y": 1100,
+      "w": 390,
+      "h": 844,
+      "title": "2.2 매거진 목록 · 검색 결과",
+      "is_interactive": true
+    },
+    "2.2-NoResult.dc.html": {
+      "x": 1410,
+      "y": 1100,
+      "w": 390,
+      "h": 844,
+      "title": "2.2 매거진 목록 · 결과 없음",
+      "is_interactive": true
     }
   },
   "order": [
@@ -220,6 +236,8 @@
     "1.3-Under14.dc.html",
     "Home.dc.html",
     "Article.dc.html",
+    "2.2-MagazineList.dc.html",
+    "2.2-NoResult.dc.html",
     "QnA.dc.html",
     "3.0-Senior.dc.html",
     "Ask.dc.html",

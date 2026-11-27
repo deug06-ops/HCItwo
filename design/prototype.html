@@ -367,7 +367,7 @@ a.card:active{background:#FBF8FC}
   </div>
   <script>
   function q10Toggle(){const b=document.getElementById('q10Agree'),on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);const x=document.getElementById('q10Box');x.style.background=on?'var(--grad)':'var(--surface)';x.style.borderColor=on?'transparent':'var(--line)';x.innerHTML=on?'<svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;color:var(--on-grad);stroke-width:3"><path d="M20 6L9 17l-5-5"/></svg>':'';document.getElementById('q10Btn').disabled=!on;document.getElementById('q10Err').hidden=true}
-  function q10Verify(){toast('본인인증을 마쳤어요 · 만 14~18세');setTimeout(()=>location.hash='1.2',1000)}
+  function q10Verify(){toast('본인인증을 마쳤어요 · 만 14~18세');setTimeout(()=>location.hash=document.getElementById('1.2')?'1.2':'2.0',1000)}
   function q10Demo(k){if(document.getElementById('q10Btn').disabled)q10Toggle();
     if(k==='fail'){const e=document.getElementById('q10Err');e.textContent='인증이 취소됐어요. 다시 시도해 주세요.';e.hidden=false}
     if(k==='under'){location.hash='1.3'}}
@@ -387,9 +387,9 @@ a.card:active{background:#FBF8FC}
 <div id="toast"></div>
 <script>
 const S=[...document.querySelectorAll(".screen")],L=document.getElementById("list"),T=document.getElementById("toast");
-L.innerHTML=S.map(s=>`<a href="#${s.id}">${s.id} ${s.dataset.name||""}</a>`).join("");
+L.innerHTML=[...S].sort((a,b)=>a.id.localeCompare(b.id,undefined,{numeric:true})).map(s=>`<a href="#${s.id}">${s.id} ${s.dataset.name||""}</a>`).join("");
 document.getElementById("idx").onclick=()=>L.classList.toggle("on");
 function toast(m){T.textContent=m;T.classList.add("on");clearTimeout(T._t);T._t=setTimeout(()=>T.classList.remove("on"),1600)}
-function show(){const id=decodeURIComponent(location.hash.slice(1));const t=S.find(s=>s.id===id)||S[0];if(id&&!S.some(s=>s.id===id))toast("아직 만들지 않은 화면이에요");const base=t.dataset.over&&S.find(s=>s.id===t.dataset.over);S.forEach(s=>s.classList.toggle("on",s===t||s===base));L.classList.remove("on");window.scrollTo(0,0)}
+function show(){const id=decodeURIComponent(location.hash.slice(1));const t=S.find(s=>s.id===id)||S.find(s=>s.id==="1.0")||S[0];if(id&&!S.some(s=>s.id===id))toast("아직 만들지 않은 화면이에요");const base=t.dataset.over&&S.find(s=>s.id===t.dataset.over);S.forEach(s=>s.classList.toggle("on",s===t||s===base));L.classList.remove("on");window.scrollTo(0,0)}
 addEventListener("hashchange",show);show();
 </script></body></html>

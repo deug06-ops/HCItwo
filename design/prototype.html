@@ -133,8 +133,8 @@ body{background:var(--bg)}
   </nav>
 </section>
 <section class="screen has-tab" id="3.0" data-name="커뮤니티 · 질문 피드">
+  <div class="topbar"><a href="#2.0" class="back" aria-label="뒤로"><svg class="ico" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></a><h1 class="title" style="margin:0">커뮤니티</h1><span style="width:28px;height:28px;border-radius:50%;background:var(--ph);margin-right:8px"></span></div>
   <div class="wrap" style="gap:14px;padding-bottom:168px">
-    <div style="display:flex;align-items:center;justify-content:space-between;min-height:44px"><h1 class="h2">커뮤니티</h1><span style="width:28px;height:28px;border-radius:50%;background:var(--ph)"></span></div>
     <div class="seg" role="tablist">
       <button class="on" role="tab" aria-selected="true">만 14~18세</button>
       <button role="tab" aria-selected="false" onclick="toast('만 19세 이상만 들어갈 수 있어요')" style="color:var(--sub)"><svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;vertical-align:-2px;margin-right:4px"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>만 19세 이상</button>
@@ -384,8 +384,9 @@ body{background:var(--bg)}
   </div>
 </section>
 <section class="screen has-tab" id="4.0" data-name="AI Q&amp;A">
+  <div class="topbar"><a href="#2.0" class="back" aria-label="뒤로"><svg class="ico" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></a><h1 class="title" style="margin:0">AI Q&amp;A</h1></div>
   <div class="wrap">
-    <div style="display:flex;flex-direction:column;gap:4px"><span class="h1">AI Q&amp;A</span><span class="meta">언니한테 말하듯, 편하게 상담받아요</span></div>
+    <span class="meta">언니한테 말하듯, 편하게 상담받아요</span>
     <div class="notice"><svg class="ico" viewBox="0 0 24 24" style="width:16px;height:16px;margin-top:2px"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>모든 상담은 완전 익명으로 진행돼요. 이름도 얼굴도 필요 없어요.</span></div>
     <a href="#4.1" class="card" style="background:var(--grad);border-color:transparent;color:var(--on-grad);gap:6px">
       <b style="font-size:17px">언니 AI한테 먼저 물어보기 →</b>
@@ -500,8 +501,8 @@ body{background:var(--bg)}
   </div>
 </section>
 <section class="screen has-tab" id="5.0" data-name="성지식 사전">
+  <div class="topbar"><a href="#2.0" class="back" aria-label="뒤로"><svg class="ico" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></a><h1 class="title" style="margin:0">성지식 사전</h1></div>
   <div class="wrap" style="gap:12px">
-    <div style="display:flex;align-items:center;min-height:44px"><h1 class="h2">성지식 사전</h1></div>
     <div class="search"><svg class="ico" viewBox="0 0 24 24" style="width:18px;height:18px;color:var(--sub)"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg><input id="q50Q" type="text" placeholder="궁금한 용어를 검색해보세요" aria-label="사전 검색" oninput="q50Find()"><button id="q50X" hidden aria-label="검색어 지우기" onclick="q50Clear()" style="width:44px;height:44px;margin-right:-10px;border:0;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center"><span style="width:22px;height:22px;border-radius:50%;background:var(--mute);display:flex;align-items:center;justify-content:center"><svg class="ico" viewBox="0 0 24 24" style="width:12px;height:12px;stroke-width:3"><path d="M18 6L6 18M6 6l12 12"/></svg></span></button></div>
     <div class="chips q22tabs" id="q50Tabs" style="flex-wrap:nowrap;overflow-x:auto;margin:0 -20px;padding:0 20px"><button class="chip on" onclick="q50Tab(this)">전체</button><button class="chip" onclick="q50Tab(this)">생리</button><button class="chip" onclick="q50Tab(this)">피임</button><button class="chip" onclick="q50Tab(this)">임신</button><button class="chip" onclick="q50Tab(this)">관계</button></div>
     <div id="q50List" style="display:flex;flex-direction:column;gap:10px">

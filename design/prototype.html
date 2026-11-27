@@ -1,4 +1,4 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>서비스명(가제) 프로토타입</title>
 <style>
 :root{--grad:linear-gradient(135deg,#EEBAB7,#BAA8D6);--on-grad:#2B2236;--bg-grad:linear-gradient(180deg,#FDF1EF 0%,#F8F3F8 45%,#F4F1F9 100%);--main:#5E4E8E;--main-soft:#F1ECF8;--accent:#3F6587;--accent-soft:#E9F0F6;--peer:#3F7347;--peer-soft:#E9F3EA;--bg:#FAF6F8;--surface:#ffffff;--text:#2B2236;--sub:#675E73;--faint:#8F87A0;--line:#ECE4EE;--ph:#ECE6F1;--mute:#EFEAF4;--error:#B3261E;--radius:16px}
@@ -73,6 +73,16 @@ a.card:active{background:#FBF8FC}
 .act{min-height:44px;padding:0 10px;border:0;background:none;font:inherit;font-size:13px;color:var(--sub);cursor:pointer;border-radius:10px;display:inline-flex;align-items:center;gap:4px}
 .act:active{background:var(--main-soft)}
 .act.on{color:var(--main);font-weight:700}
+@media (max-width:480px){
+body{background:var(--bg)}
+.device{width:100%;margin:0;border-radius:0;box-shadow:none;min-height:100dvh}
+.screen{min-height:100dvh}
+.screen.has-tab.on{height:100dvh}
+.chatwrap{height:100dvh!important}
+.screen .wrap[style*="min-height:780px"]{min-height:100dvh!important}
+.tabbar{padding-bottom:calc(10px + env(safe-area-inset-bottom,0px))}
+#idx,#list{display:none!important}
+}
 .state-bar{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:10px 12px;border-top:1px dashed var(--line);background:#fff}
 .state-bar button{font-size:12px;min-height:32px;padding:0 10px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--sub)}
 </style></head><body>
@@ -210,7 +220,7 @@ a.card:active{background:#FBF8FC}
   </script>
 </section>
 <section class="screen" id="4.2" data-name="전문가 질문 작성 (채팅)">
-  <div style="height:780px;display:flex;flex-direction:column;position:relative">
+  <div class="chatwrap" style="height:780px;display:flex;flex-direction:column;position:relative">
     <div class="topbar" style="gap:10px">
       <button class="back" aria-label="뒤로" onclick="document.getElementById('q42Dim').classList.add('on')"><svg class="ico" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
       <span style="width:36px;height:36px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;color:var(--on-grad);flex-shrink:0"><svg class="ico" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>

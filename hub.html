@@ -1,0 +1,63 @@
+<title>성지식 서비스 설계 모음</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+/* layout: 한 화면 앱. 위쪽 띠(이름 + 탭 3개 + 설명), 아래는 고른 탭의 파일이 화면을 채움 */
+:root{
+  --bg:#F6F1F7;--surface:#FFFFFF;--fg:#2B2236;--sub:#675E73;--line:#E6DFEE;
+  --accent:#5E4E8E;--accent-soft:#F1ECF8;--grad:linear-gradient(135deg,#EEBAB7,#BAA8D6);--on-grad:#2B2236;
+  --font:'Noto Sans KR',system-ui,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#1C1822;--surface:#26212D;--fg:#EFEAF4;--sub:#B3A9BF;--line:#3A3344;--accent:#C9B8EE;--accent-soft:#2F2840;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1C1822;--surface:#26212D;--fg:#EFEAF4;--sub:#B3A9BF;--line:#3A3344;--accent:#C9B8EE;--accent-soft:#2F2840;color-scheme:dark}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);display:flex;flex-direction:column}
+header{display:flex;flex-direction:column;gap:10px;padding-block:14px 12px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:var(--surface);border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.dot{width:22px;height:22px;border-radius:50%;background:var(--grad);flex-shrink:0}
+h1{margin:0;font-size:17px;font-weight:900;text-wrap:balance}
+.tag{font-size:12px;color:var(--sub);background:var(--accent-soft);padding:2px 8px;border-radius:999px}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+nav a{min-height:40px;display:inline-flex;align-items:center;gap:6px;padding:0 14px;border-radius:999px;border:1px solid var(--line);color:var(--fg);text-decoration:none;font-size:14px;font-weight:500}
+nav a:hover{border-color:var(--accent)}
+nav a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+nav a[aria-current="page"]{background:var(--grad);border-color:transparent;color:var(--on-grad);font-weight:700}
+nav small{font-size:12px;opacity:.75;font-variant-numeric:tabular-nums}
+.desc{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--sub);line-height:1.55}
+.desc p{margin:0;min-width:0;max-width:72ch}
+.desc a{color:var(--accent);font-weight:700;text-decoration:none;white-space:nowrap}
+.desc a:hover{text-decoration:underline}
+main{flex:1;min-height:0;position:relative}
+iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:var(--bg)}
+</style>
+
+<header>
+  <div class="top"><span class="dot"></span><h1>성지식 서비스 설계 모음</h1><span class="tag">서비스명 가제 · 2026-11-27 기준</span></div>
+  <nav aria-label="보기 고르기">
+    <a href="#prototype" data-view="prototype">누를 수 있는 화면 <small>14</small></a>
+    <a href="#wireframe" data-view="wireframe">와이어프레임 <small>28</small></a>
+    <a href="#flow" data-view="flow">서비스 플로우 <small>5</small></a>
+  </nav>
+  <div class="desc"><p id="desc"></p><a id="open" href="#" target="_blank" rel="noopener">새 탭에서 열기 ↗</a></div>
+</header>
+<main>
+  <iframe id="f-prototype" title="누를 수 있는 화면" hidden></iframe>
+  <iframe id="f-wireframe" title="와이어프레임" hidden></iframe>
+  <iframe id="f-flow" title="서비스 플로우" hidden></iframe>
+</main>
+
+<script>
+const V={
+  prototype:{src:'design/prototype.html',text:'실제처럼 눌러 볼 수 있는 디자인 화면이에요. 온보딩에서 시작하고, 오른쪽 위 "화면 목록"으로 원하는 화면에 바로 갈 수 있어요. 화면 아래 버튼으로 오류·빈 상태도 볼 수 있어요.'},
+  wireframe:{src:'wireframe/index.html',text:'화면 28장을 옆으로 넘기며 봐요. 위쪽 화면 이름을 누르면 바로 가고, 화면 안의 버튼을 누르면 그 칸에서 연결된 화면으로 이동해요.'},
+  flow:{src:'flow/flow.html',text:'맨 위 전체 그림과 플로우 5개(익명 질문, 처음 가입, 언니 AI, 매거진, 사전)예요. 굵은 화살표는 핵심 플로우, 점선은 갈림길이에요.'}
+};
+function show(){
+  let k=location.hash.slice(1);if(!V[k])k='prototype';
+  for(const n in V){const f=document.getElementById('f-'+n);f.hidden=n!==k;if(n===k&&!f.getAttribute('src'))f.src=V[n].src}
+  document.querySelectorAll('nav a').forEach(a=>{if(a.dataset.view===k)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+  document.getElementById('desc').textContent=V[k].text;
+  document.getElementById('open').href=V[k].src;
+}
+addEventListener('hashchange',show);show();
+</script>

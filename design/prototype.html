@@ -62,9 +62,11 @@ a.card:active{background:#FBF8FC}
 .search{display:flex;align-items:center;gap:8px;min-height:48px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:0 14px}
 .search input{border:0;outline:0;flex:1;font:inherit;font-size:15px;background:none;color:var(--text);min-height:44px}
 .search input::placeholder{color:var(--faint)}
-.screen.sheet{position:absolute;inset:0;min-height:0;z-index:6;background:rgba(43,34,54,.45);display:none;flex-direction:column;justify-content:flex-end}
-.screen.sheet.on{display:flex}
-.sheet-box{background:var(--surface);border-radius:24px 24px 0 0;padding:10px 20px 24px;display:flex;flex-direction:column;gap:16px}
+.screen.banner{position:absolute;top:10px;left:10px;right:10px;min-height:0;z-index:6;display:none;pointer-events:none}
+.screen.banner.on{display:block}
+.banner-box{pointer-events:auto;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 28px rgba(43,34,54,.18);padding:12px 14px;display:flex;flex-direction:column;gap:10px;animation:drop .25s ease-out}
+@keyframes drop{from{transform:translateY(-12px);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.banner-box{animation:none}}
 .state-bar{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:10px 12px;border-top:1px dashed var(--line);background:#fff}
 .state-bar button{font-size:12px;min-height:32px;padding:0 10px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--sub)}
 </style></head><body>
@@ -259,24 +261,21 @@ a.card:active{background:#FBF8FC}
   }
   </script>
 </section>
-<section class="screen sheet" id="3.3" data-name="푸시 알림 동의 (팝업)" data-over="3.1">
-  <div class="sheet-box" role="dialog" aria-label="푸시 알림 동의">
-    <span style="align-self:center;width:40px;height:4px;border-radius:2px;background:var(--line)"></span>
-    <div style="display:flex;flex-direction:column;gap:6px">
-      <b style="font-size:19px;line-height:1.4">알림에는 질문 내용이 보이지 않아요</b>
-      <span class="meta" style="font-size:14px;line-height:1.55">앱을 안 쓸 때도 답변 소식을 알려드려요. 잠금 화면에는 이렇게만 보여요.</span>
+<section class="screen banner" id="3.3" data-name="푸시 알림 동의 (위쪽 작은 배너)" data-over="3.1">
+  <div class="banner-box" role="dialog" aria-label="푸시 알림 동의">
+    <div style="display:flex;gap:10px;align-items:flex-start">
+      <span style="width:36px;height:36px;border-radius:10px;background:var(--grad);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--on-grad)"><svg class="ico" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span>
+      <div style="display:flex;flex-direction:column;gap:2px;flex:1">
+        <b style="font-size:15px">답변 소식을 알림으로 받을까요?</b>
+        <span class="meta" style="font-size:12.5px;line-height:1.45">알림에는 질문 내용이 보이지 않고 "새 알림이 있어요"만 떠요.<br>또래 답변 · AI 검수 결과 · 전문가 답변</span>
+      </div>
     </div>
-    <div style="background:#2B2236;border-radius:18px;padding:14px;display:flex;gap:10px;align-items:center">
-      <span style="width:36px;height:36px;border-radius:10px;background:var(--grad);flex-shrink:0"></span>
-      <div style="display:flex;flex-direction:column;gap:2px;color:#fff"><span style="font-size:12px;opacity:.8">서비스명 · 지금</span><b style="font-size:15px">새 알림이 있어요</b></div>
+    <div class="row">
+      <button class="btn line" onclick="q33Close('알림은 꺼져 있어요. 답변은 앱에서 확인할 수 있어요')">나중에</button>
+      <button class="btn" onclick="q33Close('알림을 켰어요')">알림 받기</button>
     </div>
-    <div style="display:flex;flex-direction:column;gap:8px">
-      <span style="font-size:13px;font-weight:700;color:var(--sub)">이럴 때 알려드려요</span>
-      <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="badge peer">또래 답변</span><span class="badge ok">AI 검수 결과</span><span class="badge ok">전문가 답변</span></div>
-    </div>
-    <button class="btn" onclick="toast('알림을 켰어요');setTimeout(()=>location.hash='3.2',900)">알림 받기</button>
-    <button class="btn line" style="border:0;background:none;color:var(--sub);font-weight:600" onclick="toast('알림은 꺼져 있어요. 답변은 앱에서 확인할 수 있어요');setTimeout(()=>location.hash='3.2',1400)">나중에 하기</button>
   </div>
+  <script>function q33Close(m){toast(m);setTimeout(()=>location.hash='3.2',1200)}</script>
 </section>
 <!-- 화면 끝 -->
 </div>

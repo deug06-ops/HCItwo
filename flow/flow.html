@@ -15,6 +15,7 @@ flowchart LR
   subgraph G2["2.0 홈"]
     S2_0["홈 매거진 허브 2.0"]
     S2_1["매거진 아티클 상세 2.1"]
+    N8["매거진 목록 2.2"]
   end
   subgraph G3["3.0 커뮤니티"]
     S3_0["커뮤니티 질문 피드 3.0"]
@@ -42,6 +43,9 @@ flowchart LR
   S3_1 -.->|"등록 전 AI 안내, 전문가에게 묻기"| N2
   S3_2 -->|"전문가에게 묻기"| N2
   S2_0 -->|"기능 카드 AI QnA"| S4_0
+  S2_0 -->|"기능 카드 매거진"| N8
+  N8 -->|"아티클 카드"| S2_1
+  S2_1 -->|"뒤로 가기"| N8
   S4_0 -->|"언니 AI한테 묻기"| N6
   N6 -->|"밑줄 용어"| N7
   N7 -->|"닫기"| N6
@@ -54,6 +58,7 @@ flowchart LR
   class N5,N6,N7 has
   class N1,N4 has
   class N2 has
+  class N8 new
 </pre></div>
 <h2>플로우 1: 익명 질문 → 답변 받기 (핵심)</h2>
 <div class="box"><pre class="mermaid">
@@ -105,6 +110,20 @@ flowchart LR
   class S2_0,S4_0 has
   class N6,N7 has
   class N2 has
+</pre></div>
+<h2>플로우 4: 궁금한 주제의 매거진 찾아 읽기</h2>
+<div class="box"><pre class="mermaid">
+flowchart LR
+  S2_0["홈 매거진 허브 2.0"] -->|"기능 카드 매거진, 더보기"| N8["매거진 목록 2.2"]
+  N8 -->|"검색 또는 주제 탭"| N8
+  N8 -->|"아티클 카드"| S2_1["매거진 아티클 상세 2.1"]
+  S2_1 -->|"다 읽고 뒤로 가기"| N8
+  N8 -.->|"결과 없음, 제목 적어 추가 요청"| N9["요청했어요 안내, 목록에 머묾"]
+  classDef has fill:#e8f1ff,stroke:#4a7fd6
+  classDef none fill:#fff4e0,stroke:#d68a1a,stroke-dasharray:4
+  classDef new fill:#ffecec,stroke:#c44,stroke-dasharray:4
+  class S2_0,S2_1 has
+  class N8,N9 new
 </pre></div>
 <script>mermaid.initialize({startOnLoad:true,theme:"neutral",flowchart:{htmlLabels:true}})</script>
 </body></html>

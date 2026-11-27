@@ -210,6 +210,22 @@
       "w": 390,
       "x": 2350,
       "y": 1928
+    },
+    "3.2-Peer.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "⑥-4 친구의 질문 · 만 14~18세 시점 (3.2)",
+      "w": 390,
+      "x": 2820,
+      "y": 1928
+    },
+    "3.5-Answer-Peer.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "⑰-2 답변하기 · 만 14~18세 (3.5)",
+      "w": 390,
+      "x": 3290,
+      "y": 1928
     }
   },
   "order": [
@@ -237,7 +253,9 @@
     "6.0-MyActivity.dc.html",
     "3.0-Senior.dc.html",
     "3.2-Senior.dc.html",
-    "3.5-Answer.dc.html"
+    "3.5-Answer.dc.html",
+    "3.2-Peer.dc.html",
+    "3.5-Answer-Peer.dc.html"
   ],
   "notes": {
     "t1": {

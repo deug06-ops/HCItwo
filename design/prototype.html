@@ -139,7 +139,7 @@ body{background:var(--bg)}
     <a href="#3.2" class="card">
       <div style="display:flex;align-items:center;gap:6px"><span class="badge">익명</span><span class="meta">3시간 전</span></div>
       <p class="body">생리 주기가 갑자기 불규칙해졌는데, 다들 이런 적 있어요?</p>
-      <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge ok">AI 검수완료</span><span class="badge peer">또래 답변 3</span><span class="badge peer">채택됨</span></div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="badge ok">AI 검수완료</span><span class="badge peer">또래 답변 3</span></div>
     </a>
     <a href="#3.2" class="card">
       <div style="display:flex;align-items:center;gap:6px"><span class="badge">익명</span><span class="meta">12시간 전</span></div>
@@ -319,15 +319,15 @@ body{background:var(--bg)}
           <b style="font-size:15px" id="q32Count">또래 답변 3</b>
           <div id="q32Wait" hidden class="card" style="align-items:center;text-align:center;gap:4px"><b style="font-size:15px">아직 답변이 없어요</b><span class="meta">답변이 오면 알림으로 알려드려요</span></div>
           <div id="q32List" style="display:flex;flex-direction:column;gap:10px">
-            <div class="card q32a" style="border:1.5px solid var(--main);gap:6px">
-              <div style="display:flex;align-items:center;justify-content:space-between"><span class="meta">익명 · 만 19세 이상 선배</span><span class="badge peer q32pick">채택됨</span></div>
+            <div class="card q32a" style="gap:6px">
+              <div style="display:flex;align-items:center;justify-content:space-between"><span class="meta">익명 · 만 19세 이상 선배</span></div>
               <p class="body" style="font-size:15px">저도 시험 기간에 그랬어요. 스트레스 받으면 주기가 밀리더라고요. 저는 생리 앱에 기록해두니까 덜 불안했어요.</p>
-              <div style="display:flex;margin-left:-10px"><button class="act" onclick="q32Help(this,12)">도움됐어요 12</button><button class="act" onclick="toast('댓글 2개 (프로토타입에서는 생략)')">댓글 2</button></div>
+              <div style="display:flex;margin-left:-10px"><button class="act" onclick="q32Help(this,12)">좋아요 12</button><button class="act" onclick="toast('댓글 2개 (프로토타입에서는 생략)')">댓글 2</button></div>
             </div>
             <div class="card q32a" style="gap:6px">
-              <div style="display:flex;align-items:center;justify-content:space-between"><span class="meta">익명 · 만 14~18세</span><span class="badge peer q32pick" hidden>채택됨</span></div>
+              <div style="display:flex;align-items:center;justify-content:space-between"><span class="meta">익명 · 만 14~18세</span></div>
               <p class="body" style="font-size:15px">나도 고2 때 그랬어! 나만 그런 거 아니라서 다행이다</p>
-              <div style="display:flex;margin-left:-10px"><button class="act" onclick="q32Help(this,4)">도움됐어요 4</button><button class="act" onclick="q32Pick(this)">채택하기</button><button class="act" onclick="q32Comment()">댓글</button></div>
+              <div style="display:flex;margin-left:-10px"><button class="act" onclick="q32Help(this,4)">좋아요 4</button><button class="act" onclick="q32Comment()">댓글</button></div>
             </div>
           </div>
         </div>
@@ -341,8 +341,7 @@ body{background:var(--bg)}
     <button onclick="q32State(true)">답변 있는 모습 보기</button>
   </div>
   <script>
-  function q32Help(b,n){const on=b.classList.toggle('on');b.textContent='도움됐어요 '+(n+(on?1:0));if(on)toast('도움됐어요를 눌렀어요')}
-  function q32Pick(b){document.querySelectorAll('#q32List .q32a').forEach(c=>{const me=c.contains(b);c.querySelector('.q32pick').hidden=!me;c.style.border=me?'1.5px solid var(--main)':''});b.remove();toast('이 답변을 채택했어요')}
+  function q32Help(b,n){const on=b.classList.toggle('on');b.textContent='좋아요 '+(n+(on?1:0));if(on)toast('좋아요를 눌렀어요')}
   function q32Comment(){const c=document.getElementById('q32Cbox');c.hidden=false;document.getElementById('q32Ctext').focus()}
   function q32Send(){const t=document.getElementById('q32Ctext');if(!t.value.trim()){toast('댓글 내용을 적어주세요');return}t.value='';document.getElementById('q32Cbox').hidden=true;toast('댓글을 남겼어요. 답이 오면 알려드려요')}
   function q32State(has){document.getElementById('q32List').hidden=!has;document.getElementById('q32Wait').hidden=has;document.getElementById('q32Count').textContent=has?'또래 답변 3':'또래 답변'}

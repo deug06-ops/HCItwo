@@ -156,7 +156,7 @@
       "is_interactive": true
     },
     "5.1-TermPopup.dc.html": {
-      "x": 470,
+      "x": 940,
       "y": 4400,
       "w": 390,
       "h": 844,
@@ -226,6 +226,14 @@
       "h": 844,
       "title": "2.2 매거진 목록 · 결과 없음",
       "is_interactive": true
+    },
+    "5.0-NoResult.dc.html": {
+      "x": 470,
+      "y": 4400,
+      "w": 390,
+      "h": 844,
+      "title": "5.0 성지식 사전 · 결과 없음",
+      "is_interactive": true
     }
   },
   "order": [
@@ -254,6 +262,7 @@
     "4.2-ExpertAsk.dc.html",
     "4.2-Sent.dc.html",
     "Library.dc.html",
+    "5.0-NoResult.dc.html",
     "5.1-TermPopup.dc.html",
     "6.0-MyActivity.dc.html"
   ],

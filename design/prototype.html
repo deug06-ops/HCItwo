@@ -62,6 +62,9 @@ a.card:active{background:#FBF8FC}
 .search{display:flex;align-items:center;gap:8px;min-height:48px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:0 14px}
 .search input{border:0;outline:0;flex:1;font:inherit;font-size:15px;background:none;color:var(--text);min-height:44px}
 .search input::placeholder{color:var(--faint)}
+.screen.sheet{position:absolute;inset:0;min-height:0;z-index:6;background:rgba(43,34,54,.45);display:none;flex-direction:column;justify-content:flex-end}
+.screen.sheet.on{display:flex}
+.sheet-box{background:var(--surface);border-radius:24px 24px 0 0;padding:10px 20px 24px;display:flex;flex-direction:column;gap:16px}
 .state-bar{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:10px 12px;border-top:1px dashed var(--line);background:#fff}
 .state-bar button{font-size:12px;min-height:32px;padding:0 10px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--sub)}
 </style></head><body>
@@ -256,6 +259,25 @@ a.card:active{background:#FBF8FC}
   }
   </script>
 </section>
+<section class="screen sheet" id="3.3" data-name="푸시 알림 동의 (팝업)" data-over="3.1">
+  <div class="sheet-box" role="dialog" aria-label="푸시 알림 동의">
+    <span style="align-self:center;width:40px;height:4px;border-radius:2px;background:var(--line)"></span>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <b style="font-size:19px;line-height:1.4">알림에는 질문 내용이 보이지 않아요</b>
+      <span class="meta" style="font-size:14px;line-height:1.55">앱을 안 쓸 때도 답변 소식을 알려드려요. 잠금 화면에는 이렇게만 보여요.</span>
+    </div>
+    <div style="background:#2B2236;border-radius:18px;padding:14px;display:flex;gap:10px;align-items:center">
+      <span style="width:36px;height:36px;border-radius:10px;background:var(--grad);flex-shrink:0"></span>
+      <div style="display:flex;flex-direction:column;gap:2px;color:#fff"><span style="font-size:12px;opacity:.8">서비스명 · 지금</span><b style="font-size:15px">새 알림이 있어요</b></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <span style="font-size:13px;font-weight:700;color:var(--sub)">이럴 때 알려드려요</span>
+      <div style="display:flex;flex-wrap:wrap;gap:6px"><span class="badge peer">또래 답변</span><span class="badge ok">AI 검수 결과</span><span class="badge ok">전문가 답변</span></div>
+    </div>
+    <button class="btn" onclick="toast('알림을 켰어요');setTimeout(()=>location.hash='3.2',900)">알림 받기</button>
+    <button class="btn line" style="border:0;background:none;color:var(--sub);font-weight:600" onclick="toast('알림은 꺼져 있어요. 답변은 앱에서 확인할 수 있어요');setTimeout(()=>location.hash='3.2',1400)">나중에 하기</button>
+  </div>
+</section>
 <!-- 화면 끝 -->
 </div>
 <div id="toast"></div>
@@ -264,6 +286,6 @@ const S=[...document.querySelectorAll(".screen")],L=document.getElementById("lis
 L.innerHTML=S.map(s=>`<a href="#${s.id}">${s.id} ${s.dataset.name||""}</a>`).join("");
 document.getElementById("idx").onclick=()=>L.classList.toggle("on");
 function toast(m){T.textContent=m;T.classList.add("on");clearTimeout(T._t);T._t=setTimeout(()=>T.classList.remove("on"),1600)}
-function show(){const id=decodeURIComponent(location.hash.slice(1));const t=S.find(s=>s.id===id)||S[0];if(id&&!S.some(s=>s.id===id))toast("아직 만들지 않은 화면이에요");S.forEach(s=>s.classList.toggle("on",s===t));L.classList.remove("on");window.scrollTo(0,0)}
+function show(){const id=decodeURIComponent(location.hash.slice(1));const t=S.find(s=>s.id===id)||S[0];if(id&&!S.some(s=>s.id===id))toast("아직 만들지 않은 화면이에요");const base=t.dataset.over&&S.find(s=>s.id===t.dataset.over);S.forEach(s=>s.classList.toggle("on",s===t||s===base));L.classList.remove("on");window.scrollTo(0,0)}
 addEventListener("hashchange",show);show();
 </script></body></html>

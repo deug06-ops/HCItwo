@@ -178,6 +178,38 @@
       "w": 390,
       "x": 4230,
       "y": 964
+    },
+    "6.0-MyActivity.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "⑯ 내 활동 (6.0)",
+      "w": 390,
+      "x": 470,
+      "y": 1928
+    },
+    "3.0-Senior.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "④-2 커뮤니티 · 만 19세 이상 선배 시점 (3.0)",
+      "w": 390,
+      "x": 1410,
+      "y": 1928
+    },
+    "3.2-Senior.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "⑥-3 다른 사람의 질문 · 선배 시점 (3.2)",
+      "w": 390,
+      "x": 1880,
+      "y": 1928
+    },
+    "3.5-Answer.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "⑰ 답변하기 (3.5)",
+      "w": 390,
+      "x": 2350,
+      "y": 1928
     }
   },
   "order": [
@@ -201,7 +233,11 @@
     "4.1-OnniChat.dc.html",
     "5.1-TermPopup.dc.html",
     "3.1-Photo.dc.html",
-    "3.4-Report.dc.html"
+    "3.4-Report.dc.html",
+    "6.0-MyActivity.dc.html",
+    "3.0-Senior.dc.html",
+    "3.2-Senior.dc.html",
+    "3.5-Answer.dc.html"
   ],
   "notes": {
     "t1": {

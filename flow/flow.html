@@ -46,6 +46,8 @@ flowchart LR
   S2_0 -->|"기능 카드 매거진"| N8
   N8 -->|"아티클 카드"| S2_1
   S2_1 -->|"뒤로 가기"| N8
+  S2_1 -.->|"사전에서 찾아보기"| S5_0
+  S2_1 -.->|"커뮤니티에 익명으로 물어보기"| S3_1
   S4_0 -->|"언니 AI한테 묻기"| N6
   N6 -->|"밑줄 용어"| N7
   N7 -->|"닫기"| N6
@@ -118,13 +120,15 @@ flowchart LR
   N8 -->|"검색 또는 주제 탭"| N8
   N8 -->|"아티클 카드"| S2_1["매거진 아티클 상세 2.1"]
   S2_1 -->|"다 읽고 뒤로 가기"| N8
-  N8 -.->|"결과 없음, 제목 적어 추가 요청"| N9["요청했어요 안내, 목록에 머묾"]
+  N8 -.->|"결과 없음, 제목 적어 추가 요청"| N9["매거진 목록 2.2 결과 없음, 요청했어요 안내"]
+  S2_1 -.->|"더 알고 싶음, 사전에서 찾아보기"| S5_0["성지식 사전 5.0"]
+  S2_1 -.->|"내 상황을 묻고 싶음, 커뮤니티에 익명으로 물어보기"| S3_1["익명 질문 작성 3.1, 플로우 1로"]
   classDef has fill:#e8f1ff,stroke:#4a7fd6
   classDef none fill:#fff4e0,stroke:#d68a1a,stroke-dasharray:4
   classDef new fill:#ffecec,stroke:#c44,stroke-dasharray:4
-  class S2_0,S2_1 has
+  class S2_0,S2_1,S5_0,S3_1 has
   class N8 has
-  class N9 new
+  class N9 has
 </pre></div>
 <script>mermaid.initialize({startOnLoad:true,theme:"neutral",flowchart:{htmlLabels:true}})</script>
 </body></html>

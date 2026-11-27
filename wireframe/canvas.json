@@ -162,6 +162,22 @@
       "h": 844,
       "title": "⑭ 용어 설명 창 (5.1)",
       "is_interactive": true
+    },
+    "3.1-Photo.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "⑤-3 질문 작성 · 사진 첨부 (3.1)",
+      "w": 390,
+      "x": 1410,
+      "y": 964
+    },
+    "3.4-Report.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "⑮ 신고하기 (3.4)",
+      "w": 390,
+      "x": 4230,
+      "y": 964
     }
   },
   "order": [
@@ -183,7 +199,9 @@
     "1.2-Tutorial-2.dc.html",
     "1.2-Tutorial-3.dc.html",
     "4.1-OnniChat.dc.html",
-    "5.1-TermPopup.dc.html"
+    "5.1-TermPopup.dc.html",
+    "3.1-Photo.dc.html",
+    "3.4-Report.dc.html"
   ],
   "notes": {
     "t1": {

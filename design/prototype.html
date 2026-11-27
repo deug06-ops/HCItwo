@@ -1,7 +1,7 @@
 <!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>서비스명(가제) 프로토타입</title>
 <style>
-:root{--grad:linear-gradient(135deg,#EEBAB7,#BAA8D6);--on-grad:#2B2236;--bg-grad:linear-gradient(180deg,#FDF1EF 0%,#F8F3F8 45%,#F4F1F9 100%);--main:#5E4E8E;--main-soft:#F1ECF8;--accent:#3F6587;--accent-soft:#E9F0F6;--peer:#3F7347;--peer-soft:#E9F3EA;--bg:#FAF6F8;--surface:#ffffff;--text:#2B2236;--sub:#675E73;--faint:#8F87A0;--line:#ECE4EE;--error:#B3261E;--radius:16px}
+:root{--grad:linear-gradient(135deg,#EEBAB7,#BAA8D6);--on-grad:#2B2236;--bg-grad:linear-gradient(180deg,#FDF1EF 0%,#F8F3F8 45%,#F4F1F9 100%);--main:#5E4E8E;--main-soft:#F1ECF8;--accent:#3F6587;--accent-soft:#E9F0F6;--peer:#3F7347;--peer-soft:#E9F3EA;--bg:#FAF6F8;--surface:#ffffff;--text:#2B2236;--sub:#675E73;--faint:#8F87A0;--line:#ECE4EE;--ph:#ECE6F1;--mute:#EFEAF4;--error:#B3261E;--radius:16px}
 *{box-sizing:border-box}body{margin:0;background:#eceef1;font-family:system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--text)}
 .device{width:390px;max-width:100%;min-height:780px;margin:24px auto;background:var(--bg-grad);border-radius:28px;box-shadow:0 8px 30px rgba(0,0,0,.12);overflow:hidden;position:relative}
 .screen{display:none;min-height:780px}.screen.on{display:block}
@@ -22,7 +22,7 @@ button{font:inherit;color:inherit}
 .topbar .back{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:0;background:none;cursor:pointer;border-radius:12px}
 .topbar .title{font-size:17px;font-weight:700;flex:1}
 .tabbar{position:absolute;left:0;right:0;bottom:0;display:flex;background:var(--surface);border-top:1px solid var(--line);padding:6px 0 18px}
-.tabbar a{flex:1;min-height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:11px;color:var(--sub)}
+.tabbar a{flex:1;min-height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:12px;color:var(--sub)}
 .tabbar a.on{color:var(--main);font-weight:700}
 .btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:48px;padding:0 20px;border-radius:999px;border:0;background:var(--grad);color:var(--on-grad);font-size:15px;font-weight:800;cursor:pointer;transition:transform .08s,filter .15s}
 .btn:active{transform:scale(.98);filter:brightness(.92)}
@@ -36,7 +36,7 @@ a.card:active{background:#FBF8FC}
 .badge{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:999px;font-size:12px;font-weight:700;background:var(--main-soft);color:var(--main)}
 .badge.ok{background:var(--accent-soft);color:var(--accent)}
 .badge.peer{background:var(--peer-soft);color:var(--peer)}
-.badge.mute{background:#EFEAF4;color:var(--sub)}
+.badge.mute{background:var(--mute);color:var(--sub)}
 .input{width:100%;min-height:48px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:12px 14px;font:inherit;font-size:15px;line-height:1.6;color:var(--text);resize:none}
 .input::placeholder{color:var(--faint)}
 .input:focus{outline:2px solid var(--main);outline-offset:-1px}
@@ -52,10 +52,10 @@ a.card:active{background:#FBF8FC}
 .row .btn{padding:0 12px;white-space:nowrap}
 .screen.has-tab.on{height:780px;overflow-y:auto}
 .ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
-.ph{background:#ECE6F1;color:var(--sub);font-size:12px;display:flex;align-items:center;justify-content:center;text-align:center}
+.ph{background:var(--ph);color:var(--sub);font-size:12px;display:flex;align-items:center;justify-content:center;text-align:center}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.seg{display:flex;background:#EFEAF4;border-radius:999px;padding:4px;gap:4px}
-.seg button{flex:1;min-height:44px;border:0;border-radius:999px;background:none;font-size:14px;font-weight:600;color:var(--sub);cursor:pointer}
+.seg{display:flex;background:var(--mute);border-radius:999px;padding:4px;gap:4px}
+.seg button{flex:1;min-height:44px;border:0;border-radius:999px;background:none;font-size:15px;font-weight:600;color:var(--sub);cursor:pointer}
 .seg button.on{background:var(--surface);color:var(--text);font-weight:700;box-shadow:0 1px 3px rgba(0,0,0,.06)}
 .fab{position:absolute;right:20px;bottom:96px;width:56px;height:56px;border-radius:50%;background:var(--grad);color:var(--on-grad);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(186,168,214,.55);z-index:3}
 .fab:active{transform:scale(.95)}
@@ -83,7 +83,7 @@ a.card:active{background:#FBF8FC}
   <div class="wrap">
     <div style="display:flex;align-items:center;justify-content:space-between">
       <div style="display:flex;align-items:center;gap:8px"><span style="width:26px;height:26px;border-radius:50%;background:var(--grad)"></span><b style="font-size:15px">서비스명</b><span class="badge mute">가제</span></div>
-      <span style="width:28px;height:28px;border-radius:50%;background:#ECE6F1"></span>
+      <span style="width:28px;height:28px;border-radius:50%;background:var(--ph)"></span>
     </div>
     <div style="display:flex;flex-direction:column;gap:4px">
       <h1 class="h1">안녕, 오늘은<br>뭐가 궁금해?</h1>
@@ -107,7 +107,7 @@ a.card:active{background:#FBF8FC}
       </a>
       <a href="#2.1" class="card" style="flex-direction:row;align-items:center;gap:12px"><div class="ph" style="width:64px;height:64px;border-radius:12px;flex-shrink:0">이미지</div><div style="display:flex;flex-direction:column;gap:6px"><span class="badge" style="align-self:flex-start">생리·생리통</span><b style="font-size:15px;line-height:1.4">생리통, 참지 말고 이렇게 관리해봐</b></div></a>
       <a href="#2.1" class="card" style="flex-direction:row;align-items:center;gap:12px"><div class="ph" style="width:64px;height:64px;border-radius:12px;flex-shrink:0">이미지</div><div style="display:flex;flex-direction:column;gap:6px"><span class="badge" style="align-self:flex-start">기초 성지식</span><b style="font-size:15px;line-height:1.4">피임, 처음이라 헷갈린다면 이것부터</b></div></a>
-      <button class="card" onclick="toast('만 19세 이상만 볼 수 있는 아티클이에요')" style="flex-direction:row;align-items:center;gap:12px;background:#F4F0F8;border-style:dashed;text-align:left;cursor:pointer;width:100%"><div class="ph" style="width:64px;height:64px;border-radius:12px;flex-shrink:0"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><div style="display:flex;flex-direction:column;gap:6px"><span class="badge mute" style="align-self:flex-start">만 19세 이상</span><b style="font-size:15px;color:var(--sub)">만 19세 이상만 볼 수 있는 아티클이에요</b></div></button>
+      <button class="card" onclick="toast('만 19세 이상만 볼 수 있는 아티클이에요')" style="flex-direction:row;align-items:center;gap:12px;background:var(--main-soft);border-style:dashed;text-align:left;cursor:pointer;width:100%"><div class="ph" style="width:64px;height:64px;border-radius:12px;flex-shrink:0"><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><div style="display:flex;flex-direction:column;gap:6px"><span class="badge mute" style="align-self:flex-start">만 19세 이상</span><b style="font-size:15px;color:var(--sub)">만 19세 이상만 볼 수 있는 아티클이에요</b></div></button>
     </div>
   </div>
   <nav class="tabbar">
@@ -119,10 +119,10 @@ a.card:active{background:#FBF8FC}
 </section>
 <section class="screen has-tab" id="3.0" data-name="커뮤니티 · 질문 피드">
   <div class="wrap" style="gap:14px;padding-bottom:168px">
-    <div style="display:flex;align-items:center;justify-content:space-between;min-height:44px"><h1 class="h2" style="font-size:20px">커뮤니티</h1><span style="width:28px;height:28px;border-radius:50%;background:#ECE6F1"></span></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;min-height:44px"><h1 class="h2">커뮤니티</h1><span style="width:28px;height:28px;border-radius:50%;background:var(--ph)"></span></div>
     <div class="seg" role="tablist">
       <button class="on" role="tab" aria-selected="true">만 14~18세</button>
-      <button role="tab" aria-selected="false" onclick="toast('만 19세 이상만 들어갈 수 있어요')" style="color:var(--faint)"><svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;vertical-align:-2px;margin-right:4px"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>만 19세 이상</button>
+      <button role="tab" aria-selected="false" onclick="toast('만 19세 이상만 들어갈 수 있어요')" style="color:var(--sub)"><svg class="ico" viewBox="0 0 24 24" style="width:14px;height:14px;vertical-align:-2px;margin-right:4px"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>만 19세 이상</button>
     </div>
     <div class="notice" style="background:var(--accent-soft);color:var(--accent)"><svg class="ico" viewBox="0 0 24 24" style="width:18px;height:18px"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg><span>병원·건강처럼 전문가 확인이 필요한 글은 올리기 전에 AI가 알려드려요. 전문가에게 바로 물어볼 수 있어요.</span></div>
     <label class="search"><svg class="ico" viewBox="0 0 24 24" style="color:var(--sub);width:18px;height:18px"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg><input type="search" placeholder="궁금한 걸 검색해보세요" aria-label="질문 검색"></label>
@@ -154,7 +154,7 @@ a.card:active{background:#FBF8FC}
   <div class="topbar">
     <a href="#3.0" class="back" aria-label="뒤로"><svg class="ico" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></a>
     <span class="title">질문하기</span>
-    <button onclick="q31Submit()" style="min-height:44px;padding:0 12px;border:0;background:none;font-size:15px;font-weight:700;color:var(--main);cursor:pointer">등록</button>
+    <span style="width:44px"></span>
   </div>
   <div class="wrap" style="gap:18px">
     <div class="notice" style="background:var(--main-soft);color:var(--main)"><span>만 14~18세 커뮤니티에 익명으로 올라가요. 이름은 공개되지 않으니 편하게 적어주세요.</span></div>
@@ -170,7 +170,7 @@ a.card:active{background:#FBF8FC}
       <p class="err" id="q31Err" hidden style="margin:0"></p>
     </div>
     <div style="display:flex;align-items:center;gap:12px">
-      <button onclick="toast('사진 고르기 (프로토타입에서는 생략)')" style="width:64px;height:64px;border:1.5px dashed var(--line);border-radius:14px;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;color:var(--sub)"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg><span style="font-size:11px">사진 0/3</span></button>
+      <button onclick="toast('사진 고르기 (프로토타입에서는 생략)')" style="width:64px;height:64px;border:1.5px dashed var(--line);border-radius:14px;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;color:var(--sub)"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg><span style="font-size:12px">사진 0/3</span></button>
       <span class="meta" style="line-height:1.5">사진을 첨부할 수 있어요.<br>부적절한 글·사진은 검열을 거쳐 올라가지 않아요.</span>
     </div>
     <div class="notice" style="background:var(--accent-soft);color:var(--accent)"><span>병원·건강처럼 전문가 확인이 필요한 내용이면, 등록을 누를 때 AI가 먼저 알려드려요. 전문가에게 묻기를 고르면 내용이 그대로 옮겨지고, 확인·수정한 뒤 등록하면 돼요.</span></div>
@@ -189,15 +189,14 @@ a.card:active{background:#FBF8FC}
     </div>
   </div>
   <script>
-  let q31First=true;
-  function q31Pick(b){document.querySelectorAll('#q31Cat .chip').forEach(c=>c.classList.toggle('on',c===b))}
+    function q31Pick(b){document.querySelectorAll('#q31Cat .chip').forEach(c=>c.classList.toggle('on',c===b))}
   function q31Error(m){const e=document.getElementById('q31Err');e.textContent=m;e.hidden=false}
   function q31Submit(){
     const t=document.getElementById('q31Text').value.trim(),cat=document.querySelector('#q31Cat .chip.on');
     if(!cat||!t)return q31Error('카테고리를 고르고 내용을 적어주세요.');
     if(/부적절|욕설|폭력/.test(t))return q31Error('부적절한 표현이 있어 올릴 수 없어요. 내용을 고쳐 주세요.');
     if(/병원|건강|진료|약|통증|산부인과/.test(t))return document.getElementById('q31Dim').classList.add('on');
-    if(q31First){q31First=false;location.hash='3.3';return}
+    if(!window.pushAsked){window.pushAsked=true;document.getElementById('3.3').dataset.over='3.1';location.hash='3.3';return}
     toast('질문을 올렸어요');location.hash='3.2';
   }
   function q31Demo(k){
@@ -205,7 +204,7 @@ a.card:active{background:#FBF8FC}
     if(k==='empty')ta.value='';
     if(k==='bad')ta.value='(부적절한 표현이 들어간 글)';
     if(k==='expert')ta.value='생리통이 너무 심해서 학교에 가기 힘들 정도예요. 병원에 가봐야 할까요?';
-    if(k==='first'){q31First=true;ta.value='생리할 때 다들 체육 시간 어떻게 버텨요?'}
+    if(k==='first'){window.pushAsked=false;ta.value='생리할 때 다들 체육 시간 어떻게 버텨요?'}
     q31Submit();
   }
   </script>
@@ -215,9 +214,9 @@ a.card:active{background:#FBF8FC}
     <div class="topbar" style="gap:10px">
       <button class="back" aria-label="뒤로" onclick="document.getElementById('q42Dim').classList.add('on')"><svg class="ico" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
       <span style="width:36px;height:36px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;color:var(--on-grad);flex-shrink:0"><svg class="ico" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
-      <div style="display:flex;flex-direction:column;gap:2px;flex:1"><b style="font-size:16px">전문가 1:1 질문</b><span class="meta" style="font-size:12px">의료진·상담 전문가 · 보통 <b>○시간</b> 안에 답해요</span></div>
+      <div style="display:flex;flex-direction:column;gap:2px;flex:1"><b style="font-size:17px">전문가 1:1 질문</b><span class="meta" style="font-size:12px">의료진·상담 전문가 · 보통 <b>○시간</b> 안에 답해요</span></div>
     </div>
-    <div class="notice" style="border-radius:0;padding:10px 20px;font-size:12.5px"><svg class="ico" viewBox="0 0 24 24" style="width:16px;height:16px;margin-top:1px"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span><b>나만 보는 1:1 질문이에요.</b> 다른 사용자에게는 보이지 않고, 전문가에게만 익명으로 전달돼요.</span></div>
+    <div class="notice" style="border-radius:0;padding:10px 20px;font-size:13px"><svg class="ico" viewBox="0 0 24 24" style="width:16px;height:16px;margin-top:1px"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span><b>나만 보는 1:1 질문이에요.</b> 다른 사용자에게는 보이지 않고, 전문가에게만 익명으로 전달돼요.</span></div>
     <div id="q42Chat" style="flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:12px">
       <span id="q42From" class="badge mute" style="align-self:center;height:26px;padding:0 12px;font-weight:600">커뮤니티 글에서 옮겨왔어요</span>
       <div style="display:flex;gap:8px;align-items:flex-start">
@@ -233,7 +232,7 @@ a.card:active{background:#FBF8FC}
       <p class="err" id="q42Err" hidden style="margin:0">질문 내용을 적어주세요.</p>
       <span class="meta" style="font-size:12px">미리 채워진 질문이에요 · 고쳐서 보낼 수 있어요</span>
       <div style="display:flex;align-items:center;gap:10px">
-        <button onclick="toast('사진 고르기 (프로토타입에서는 생략)')" aria-label="사진 첨부" style="width:48px;height:48px;flex-shrink:0;border:1.5px dashed var(--line);border-radius:14px;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;color:var(--sub)"><svg class="ico" viewBox="0 0 24 24" style="width:18px;height:18px"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg><span style="font-size:10px">0/3</span></button>
+        <button onclick="toast('사진 고르기 (프로토타입에서는 생략)')" aria-label="사진 첨부" style="width:48px;height:48px;flex-shrink:0;border:1.5px dashed var(--line);border-radius:14px;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;color:var(--sub)"><svg class="ico" viewBox="0 0 24 24" style="width:18px;height:18px"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3"/></svg><span style="font-size:12px">0/3</span></button>
         <button class="btn" onclick="q42Send()">전문가에게 보내기</button>
       </div>
     </div>
@@ -258,6 +257,7 @@ a.card:active{background:#FBF8FC}
     const d=document.createElement('div');d.className='bubble me';d.textContent=t;document.getElementById('q42Chat').appendChild(d);
     q42Add('<span class="badge mute" style="align-self:center;height:26px;padding:0 12px;font-weight:600">전문가 답변을 기다리고 있어요 · 보통 ○시간 안에 답해요</span>');
     document.getElementById('q42Box').hidden=true;toast('전문가에게 보냈어요');
+    if(!window.pushAsked){window.pushAsked=true;document.getElementById('3.3').dataset.over='4.2';setTimeout(()=>location.hash='3.3',700)}
   }
   function q42Demo(k){
     const ta=document.getElementById('q42Text');
@@ -273,15 +273,15 @@ a.card:active{background:#FBF8FC}
       <span style="width:36px;height:36px;border-radius:10px;background:var(--grad);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--on-grad)"><svg class="ico" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span>
       <div style="display:flex;flex-direction:column;gap:2px;flex:1">
         <b style="font-size:15px">답변 소식을 알림으로 받을까요?</b>
-        <span class="meta" style="font-size:12.5px;line-height:1.45">알림에는 질문 내용이 보이지 않고 "새 알림이 있어요"만 떠요.<br>또래 답변 · AI 검수 결과 · 전문가 답변</span>
+        <span class="meta" style="font-size:13px;line-height:1.45">알림에는 질문 내용이 보이지 않고 "새 알림이 있어요"만 떠요.<br>또래 답변 · AI 검수 결과 · 전문가 답변</span>
       </div>
     </div>
     <div class="row">
-      <button class="btn line" onclick="q33Close('알림은 꺼져 있어요. 답변은 앱에서 확인할 수 있어요')">나중에</button>
+      <button class="btn line" onclick="q33Close('알림은 꺼져 있어요. 답변은 앱에서 확인할 수 있어요')">나중에 하기</button>
       <button class="btn" onclick="q33Close('알림을 켰어요')">알림 받기</button>
     </div>
   </div>
-  <script>function q33Close(m){toast(m);setTimeout(()=>location.hash='3.2',1200)}</script>
+  <script>function q33Close(m){toast(m);const back=document.getElementById('3.3').dataset.over==='4.2'?'4.2':'3.2';setTimeout(()=>location.hash=back,1200)}</script>
 </section>
 <section class="screen" id="3.2" data-name="질문 상세 · 답변">
   <div class="topbar">
@@ -300,7 +300,7 @@ a.card:active{background:#FBF8FC}
         <div style="display:flex;flex-direction:column"><span class="tl-dot" style="background:var(--accent-soft);color:var(--accent)">1</span><span class="tl-line"></span></div>
         <div style="flex:1;padding-bottom:18px;display:flex;flex-direction:column;gap:8px">
           <b style="font-size:15px">AI 검수 완료</b>
-          <div class="card" style="background:var(--accent-soft);border-color:transparent;gap:4px"><span class="badge ok" style="align-self:flex-start;background:#fff">성지식 특화 AI 검수</span><p class="body" style="font-size:14px">불건전하거나 폭력적인 내용이 없는지 확인했어요. 답변도 올라올 때마다 확인해요.</p></div>
+          <div class="card" style="background:var(--accent-soft);border-color:transparent;gap:4px"><span class="badge ok" style="align-self:flex-start;background:var(--surface)">성지식 특화 AI 검수</span><p class="body">불건전하거나 폭력적인 내용이 없는지 확인했어요. 답변도 올라올 때마다 확인해요.</p></div>
         </div>
       </div>
       <div class="tl">
@@ -311,12 +311,12 @@ a.card:active{background:#FBF8FC}
           <div id="q32List" style="display:flex;flex-direction:column;gap:10px">
             <div class="card q32a" style="border:1.5px solid var(--main);gap:6px">
               <div style="display:flex;align-items:center;justify-content:space-between"><span class="meta">익명 · 만 19세 이상 선배</span><span class="badge peer q32pick">채택됨</span></div>
-              <p class="body" style="font-size:14.5px">저도 시험 기간에 그랬어요. 스트레스 받으면 주기가 밀리더라고요. 저는 생리 앱에 기록해두니까 덜 불안했어요.</p>
+              <p class="body" style="font-size:15px">저도 시험 기간에 그랬어요. 스트레스 받으면 주기가 밀리더라고요. 저는 생리 앱에 기록해두니까 덜 불안했어요.</p>
               <div style="display:flex;margin-left:-10px"><button class="act" onclick="q32Help(this,12)">도움됐어요 12</button><button class="act" onclick="toast('댓글 2개 (프로토타입에서는 생략)')">댓글 2</button></div>
             </div>
             <div class="card q32a" style="gap:6px">
               <div style="display:flex;align-items:center;justify-content:space-between"><span class="meta">익명 · 만 14~18세</span><span class="badge peer q32pick" hidden>채택됨</span></div>
-              <p class="body" style="font-size:14.5px">나도 고2 때 그랬어! 나만 그런 거 아니라서 다행이다</p>
+              <p class="body" style="font-size:15px">나도 고2 때 그랬어! 나만 그런 거 아니라서 다행이다</p>
               <div style="display:flex;margin-left:-10px"><button class="act" onclick="q32Help(this,4)">도움됐어요 4</button><button class="act" onclick="q32Pick(this)">채택하기</button><button class="act" onclick="q32Comment()">댓글</button></div>
             </div>
           </div>
